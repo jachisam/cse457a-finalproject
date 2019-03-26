@@ -1,0 +1,8 @@
+Project Milestone.
+For your Milestone 1, I expect you to hand in your code and your process book in its current state (see Final Project Submission for details), and your website template.
+
+For your Milestone 1, you should have completed your data acquisition, or at least have a significant sample of your data. You must have your data structures in place. For example, if you plan to collect 1000 data records, but only have 200, that's fine. If you are missing one of two datasets, you want to use you will lose points since you have to have the whole structure.
+
+You must have a working visualization prototype. You must not have all your views up and running, and it must not be completely interactive, but the direction and the content must be clear.
+
+If you are uncertain about the scope, please contact me. The milestone will be submitted by creating a release (Links to an external site.)Links to an external site. in GitHub.
