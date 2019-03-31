@@ -1,0 +1,18 @@
+/* Styles that clean up the layout;
+ * you can ignore these */
+div {
+    display: inline-block;
+    border: 1px solid lightgray;
+    margin: 1em;
+}
+
+div, span {
+    padding: 1em;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+table{
+  width:50%;
+}
