@@ -2,10 +2,13 @@ var width = 300, height = 400;
 var padding = 20;
 var margin = {top: 10, right: 15, bottom: 25, left: 5};
 
-var applicantCirclesSvg = d3.select("#applicant-circles")
+//Sorry, had to clear it.
+/*var applicantCirclesSvg = d3.select("#applicant-circles")
 	.append("svg")
 	.attr("height", height)
 	.attr("width", width);
+	*/
+
 var applicantTableSvg = d3.select("#applicant-table")
 	.append("svg")
 	.attr("height", height-400)
@@ -16,8 +19,17 @@ var graduate_admissions_data = "../data/graduate-admissions/Admission_Predict_Ve
 var test_data = "../data/graduate-admissions/test-data.csv"
 d3.csv(test_data, function(data){
   convertToNumericData(data);
-  drawApplicantCircles(data);
-	console.log(data);
+//  drawApplicantCircles(data);
+	//console.log(data);
+});
+
+//NEW FUNCTIONS NEW DATA
+d3.csv(graduate_admissions_data,function(data)
+{
+	convertToNumericData(data);
+	testDataProjections(data);
+	generateBubbleChart(data);
+
 });
 
 function convertToNumericData(data){
@@ -93,3 +105,41 @@ function drawApplicantTable(applicantStats){
 function clearApplicantTable(){
   d3.selectAll(".new-trs").remove();
 }
+
+
+
+/*****************************New Functions - Steven Harris ********************/
+function testDataProjections(data)
+{
+	data.forEach(function(d, index)
+  {
+		estimatedAdmissionsChance(d);
+	});
+}
+
+function estimatedAdmissionsChance(applicant)
+{
+	var b0 = -1.2757251;
+	var GRE_Score = 0.0018585;
+	var TOEFL_Score = 0.0027780;
+	var University_Rating =  0.0059414
+	var SOP = 0.0015861;
+	var LOR = 0.0168587;
+	var CGPA = 0.1183851;
+	var Research = 0.0243075;
+
+	var estimate = b0 + applicant.GRE_Score * GRE_Score + applicant.TOEFL_Score*TOEFL_Score +
+	 	applicant.University_Rating * University_Rating + applicant.SOP * SOP + applicant.LOR * LOR +
+		applicant.CGPA * CGPA + applicant.Research * Research;
+
+		console.log("Estimate for " + applicant.Serial_No + " : " + estimate + " compared to actual: " + (estimate/applicant.Chance_of_Admit) );
+
+		return estimate;
+}
+
+function generateBubbleChart(inputData)
+{
+
+	//use later
+}
+/*****************************New Functions - Steven Harris ********************/
