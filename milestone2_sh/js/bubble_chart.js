@@ -43,7 +43,7 @@ function bubbleChart()
   };
 
   // @v4 strength to apply to the position forces
-  var forceStrength = 0.03;
+  var forceStrength = 0.3;
 
   // These will be set in create_nodes and create_vis
   var svg = null;
@@ -102,19 +102,41 @@ function bubbleChart()
     // Use map() to convert raw data into node data.
     // Checkout http://learnjsdata.com/ for more on
     // working with data.
-    var myNodes = rawData.map(function (d,index) {
-      return {
-        id: index,
-        //radius: radiusScale(+d.Chance_of_Admit),
-        radius: 10*(+d.Chance_of_Admit),
-        value: +d.Chance_of_Admit,
-        name: index,
-        org: d.University_Rating,
-        group: d.CGPA,
-        gre: d.GRE_Score,
-        x: Math.random() * 900,
-        y: Math.random() * 800
-      };
+    var myNodes = rawData.map(function (d,index)
+    {
+
+      var clr = "";
+      var val = +d.Chance_of_Admit;
+      var result = [];
+
+      if(val > 0.89)
+      {
+        clr = "green";
+      }
+      else
+      {
+        if( (0.7 < val) && (val < 0.9))
+        {
+          clr = "blue";
+        }
+        else
+        {
+            clr = "purple";
+        }
+      }
+
+      result.id= index;
+      result.color= clr;
+      //radius= radiusScale(+d.Chance_of_Admit),
+      result.radius= 12*(+d.Chance_of_Admit);
+      result.value= +d.Chance_of_Admit;
+      result.name= index;
+      result.org= d.University_Rating;
+      result.group= d.CGPA;
+      result.gre= d.GRE_Score;
+      result.x= Math.random() * 900;
+      result.y= Math.random() * 800;
+      return result;
     });
 
     // sort them to prevent occlusion of smaller nodes.
@@ -168,16 +190,55 @@ function bubbleChart()
     //  enter selection to apply our transtition to below.
     var bubblesE = bubbles.enter().append('circle')
       .classed('bubble', true)
-      .attr('r', 0)
-      .attr('fill', function (d) { return fillColor(d.Chance_of_Admit*100); })
-      .attr('stroke', function (d) { return d3.rgb(fillColor(d.GRE_Score)).darker(); })
+      .attr('r', 50)
+      .attr('fill', function (d)
+      {
+        //console.dir(d);
+          if(d.value > 0.89)
+          {
+            return "green";
+          }
+          else
+          {
+            if( (0.7 < d.value) && (d.value < 0.9))
+            {
+              return "blue";
+            }
+            else
+            {
+                return "purple";
+            }
+          }
+          //return fillColor(d.Chance_of_Admit*100);
+      })
+      .attr("id",function(d){return d.id;})
+      //.attr('stroke', function (d) { return "d3.rgb(fillColor(d.GRE_Score)).darker(); })
+      .attr('stroke', function (d) { return "black";})
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail)
-      .on("click", function(d,i){
+      .on("click", function(d,i)
+      {
         clearApplicantTable();
         pureData[d.id].Serial_No = d.name;
-        drawApplicantTable(pureData[d.id])});
+        drawApplicantTable(pureData[d.id]);
+
+        svg.selectAll('.bubble')
+              .data(nodes)
+              .transition()
+                .duration(1500)
+              .style("opacity", function(b)
+            {
+                if( (b.id != d.id) && (b.color != d.color))
+                {
+                  return 0.1;
+                }
+                else
+                {
+                  return 1;
+                }
+            });
+      });
 
     // @v4 Merge the original empty selection and the enter selection
     bubbles = bubbles.merge(bubblesE);
@@ -288,9 +349,12 @@ function bubbleChart()
    * Function called on mouseover to display the
    * details of a bubble in the tooltip.
    */
-  function showDetail(d) {
+  function showDetail(d)
+  {
     // change outline to indicate hover state.
-    d3.select(this).attr('stroke', 'black');
+    d3.select(this)
+    .attr('stroke', 'red')
+    .attr('stroke-width',5);
 
     var content = '<span class="name">Applicant Number: </span><span class="value">' +
                   d.name +
@@ -304,18 +368,28 @@ function bubbleChart()
                   '</span>';
 
     tooltip.showTooltip(content, d3.event);
+    //console.dir(bubbles._groups[0][d.id].attributes);
   }
 
   /*
    * Hides tooltip
    */
-  function hideDetail(d) {
+  function hideDetail(d)
+  {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.GRE_Score)).darker());
+    .attr('stroke', "black")
+    .attr('stroke-width',1);
 
     tooltip.hideTooltip();
+    var bubbleMod = svg.selectAll('.bubble')
+      .data(nodes)
+      .transition()
+        .duration(500)
+      .style("opacity", function(b) {return 1;});
   }
+
+
 
   /*
    * Externally accessible function (this is attached to the
