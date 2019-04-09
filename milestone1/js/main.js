@@ -2,11 +2,19 @@ var width = 300, height = 400;
 var padding = 20;
 var margin = {top: 10, right: 15, bottom: 25, left: 5};
 
+var heading = {height: 150, width: 250};
+
+var poster = d3.select("#value-indicator")
+	.append("svg")
+	.attr('height', heading.height)
+  .attr('width', heading.width);
+
 //Sorry, had to clear it.
 /*var applicantCirclesSvg = d3.select("#applicant-circles")
 	.append("svg")
 	.attr("height", height)
 	.attr("width", width);
+
 	*/
 
 var applicantTableSvg = d3.select("#applicant-table")
@@ -28,7 +36,8 @@ d3.csv(graduate_admissions_data,function(data)
 {
 	convertToNumericData(data);
 	testDataProjections(data);
-	generateBubbleChart(data);
+	printHeading();
+//	generateBubbleChart(data);
 
 });
 
@@ -46,6 +55,53 @@ function convertToNumericData(data){
 	});
 }
 
+function printHeading()
+{
+	poster.append("text")
+			.text("Admission Highly Likely:")
+			.attr("x",0)
+			.attr("y",25)
+			.attr('text-anchor','start')
+			.attr('class','header');
+
+			poster.append("rect")
+				.attr("x",200)
+				.attr("y",3)
+				.attr("width",30)
+				.attr("height",30)
+				.attr("class","ahl");
+
+			poster.append("text")
+				.text("Admission Likely:")
+				.attr("x",42)
+				.attr("y",75)
+				.attr('text-anchor','start')
+				.attr('class','header');
+
+				poster.append("rect")
+					.attr("x",200)
+					.attr("y",50)
+					.attr("width",30)
+					.attr("height",30)
+					.attr("class","al");
+
+			poster.append("text")
+						.text("Admission Not Likely:")
+						.attr("x",15)
+						.attr("y",125)
+						.attr('text-anchor','start')
+						.attr('class','header');
+
+			poster.append("rect")
+							.attr("x",200)
+							.attr("y",100)
+							.attr("width",30)
+							.attr("height",30)
+							.attr("class","anl");
+
+}
+
+/*
 function drawApplicantCircles(data){
   applicantCirclesSvg.selectAll("circle")
   	.data(data)
@@ -84,6 +140,7 @@ function drawApplicantCircles(data){
 	      drawApplicantTable(d);
 	    });
 }
+*/
 
 function drawApplicantTable(applicantStats){
   //console.log(applicantStats)
@@ -137,9 +194,11 @@ function estimatedAdmissionsChance(applicant)
 		return estimate;
 }
 
+/*
 function generateBubbleChart(inputData)
 {
 
 	//use later
 }
+*/
 /*****************************New Functions - Steven Harris ********************/
