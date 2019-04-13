@@ -9,6 +9,14 @@ var poster = d3.select("#value-indicator")
 	.attr('height', heading.height)
   .attr('width', heading.width);
 
+//Sorry, had to clear it.
+/*var applicantCirclesSvg = d3.select("#applicant-circles")
+	.append("svg")
+	.attr("height", height)
+	.attr("width", width);
+
+	*/
+
 var applicantTableSvg = d3.select("#applicant-table")
 	.append("svg")
 	.attr("height", height-400)
@@ -19,6 +27,8 @@ var graduate_admissions_data = "../data/graduate-admissions/Admission_Predict_Ve
 var test_data = "../data/graduate-admissions/test-data.csv"
 d3.csv(test_data, function(data){
   convertToNumericData(data);
+//  drawApplicantCircles(data);
+	////console.log(data);
 });
 
 //NEW FUNCTIONS NEW DATA
@@ -27,11 +37,12 @@ d3.csv(graduate_admissions_data,function(data)
 	convertToNumericData(data);
 	testDataProjections(data);
 	printHeading();
+//	generateBubbleChart(data);
+
 });
 
-function convertToNumericData(data)
-{
-		data.forEach(function(d){
+function convertToNumericData(data){
+	data.forEach(function(d){
 		d.CGPA = parseFloat(d.CGPA);
 		d.Chance_of_Admit = parseFloat(d.Chance_of_Admit);
 		d.GRE_Score = parseInt(d.GRE_Score);
@@ -90,8 +101,48 @@ function printHeading()
 
 }
 
-function drawApplicantTable(applicantStats)
-{
+/*
+function drawApplicantCircles(data){
+  applicantCirclesSvg.selectAll("circle")
+  	.data(data)
+  	.enter()
+  	.append("circle")
+    .attr("fill", "lightblue")
+    .attr("stroke", "black")
+    .attr("cx", function(d, index) {
+      return (50 + index * 70);
+    })
+    .attr("cy", height/2)
+    .attr("r",  25)
+    .on("click", function(d){
+      clearApplicantTable();
+      drawApplicantTable(d);
+    });
+
+		var text = applicantCirclesSvg.selectAll("text")
+			.data(data)
+			.enter()
+			.append("text");
+
+		var textLabels = text
+			.attr("x", function(d, index) {
+	      return (50 + index * 65);
+	    })
+			.attr("y", height/1.97)
+			.text(function (d) {
+				return d.Serial_No;
+			})
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "20px")
+			.attr("fill", "black")
+			.on("click", function(d){
+	      clearApplicantTable();
+	      drawApplicantTable(d);
+	    });
+}
+*/
+
+function drawApplicantTable(applicantStats){
   //console.log(applicantStats)
   var applicantStatsLength = 8;
   var p = d3.select("#applicant-table").select("#table-area").select("tbody");
@@ -134,45 +185,20 @@ function estimatedAdmissionsChance(applicant)
 	var CGPA = 0.1183851;
 	var Research = 0.0243075;
 
-	/*
-
-	lm(formula = Chance_of_Admit ~ GRE_Score + TOEFL_Score + University_Rating +
-	    SOP + LOR + CGPA + Research, data = mydata)
-
-	Residuals:
-	      Min        1Q    Median        3Q       Max
-	-0.266657 -0.023327  0.009191  0.033714  0.156818
-
-	Coefficients:
-	                    Estimate 	Std. Error 	t value 	Pr(>|t|)
-	(Intercept)       -1.2757251  	0.1042962 	-12.232  	< 2e-16 ***
-	GRE_Score          0.0018585  	0.0005023   	3.700 		0.000240 ***
-	TOEFL_Score        0.0027780  	0.0008724   	3.184 		0.001544 **
-	University_Rating  0.0059414  	0.0038019   	1.563 		0.118753
-	SOP                0.0015861  	0.0045627   	0.348 		0.728263
-	LOR                0.0168587  	0.0041379   	4.074 		5.38e-05 ***
-	CGPA               0.1183851  	0.0097051  	12.198  	< 2e-16 ***
-	Research           0.0243075  	0.0066057   	3.680 		0.000259 ***
-	---
-	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
 	var estimate = b0 + applicant.GRE_Score * GRE_Score + applicant.TOEFL_Score*TOEFL_Score +
 	 	applicant.University_Rating * University_Rating + applicant.SOP * SOP + applicant.LOR * LOR +
 		applicant.CGPA * CGPA + applicant.Research * Research;
 
-		*/
-
-		var estimate = b0 + applicant.GRE_Score * GRE_Score + applicant.TOEFL_Score*TOEFL_Score +
-		 	applicant.University_Rating * University_Rating + applicant.SOP * SOP + applicant.LOR * LOR +
-			applicant.CGPA * CGPA + applicant.Research * Research;
-
-		var altEstimate = b0 + applicant.GRE_Score * GRE_Score + applicant.TOEFL_Score*TOEFL_Score
-									+ applicant.LOR * LOR + applicant.CGPA * CGPA + applicant.Research * Research;
-
-		console.log("Chance of Admission estimate for " + applicant.Serial_No + " : " + parseFloat(estimate).toFixed(2) + " is predicted to "
-			+ parseFloat((estimate/applicant.Chance_of_Admit)*100).toFixed(2) + "% of actual chance (" + applicant.Chance_of_Admit +")");
-		//console.log("Estimate for " + applicant.Serial_No + " : " + estimate + " vs Alt estimate vs  actual: " + altEstimate + " " + applicant.Chance_of_Admit);
+		//console.log("Estimate for " + applicant.Serial_No + " : " + estimate + " compared to actual: " + (estimate/applicant.Chance_of_Admit) );
 
 		return estimate;
 }
+
+/*
+function generateBubbleChart(inputData)
+{
+
+	//use later
+}
+*/
 /*****************************New Functions - Steven Harris ********************/
