@@ -7,7 +7,9 @@
  *
  * University_Rating and style inspired by:
  * https://bost.ocks.org/mike/chart/
- *
+
+*The Idea and skeleton was taken from the bill gates grant bubble chart:*
+ http://vallandingham.me/gates_bubbles/
  */
 
 
@@ -264,7 +266,8 @@ function bubbleChart()
    * based on the current x and y values of their bound node data.
    * These x and y values are modified by the force simulation.
    */
-  function ticked() {
+  function ticked()
+  {
     bubbles
       .attr('cx', function (d) { return d.x; })
       .attr('cy', function (d) { return d.y; });
@@ -281,9 +284,9 @@ function bubbleChart()
    * Provides a x value for each node to be used with the split by year
    * x force.
    */
-  function nodeYearPos(d) {
+  /*function nodeYearPos(d) {
     return yearCenters[d.gre].x;
-  }
+  }*/
 
 
   /*
@@ -292,8 +295,9 @@ function bubbleChart()
    * tick function is set to move all nodes to the
    * center of the visualization.
    */
-  function groupBubbles() {
-    hideYearTitles();
+  function groupBubbles()
+  {
+    //hideYearTitles();
 
     // @v4 Reset the 'x' force to draw the bubbles to the center.
     simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
@@ -309,8 +313,9 @@ function bubbleChart()
    * tick function is set to move nodes to the
    * yearCenter of their data's year.
    */
-  function splitBubbles() {
-    showYearTitles();
+  function splitBubbles()
+  {
+  //  showYearTitles();
 
     // @v4 Reset the 'x' force to draw the bubbles to their year centers
     simulation.force('x', d3.forceX().strength(forceStrength).x(nodeYearPos));
@@ -322,14 +327,15 @@ function bubbleChart()
   /*
    * Hides Year title displays.
    */
-  function hideYearTitles() {
+  /*function hideYearTitles() {
     svg.selectAll('.year').remove();
-  }
+  }*/
 
   /*
    * Shows Year title displays.
    */
-  function showYearTitles() {
+  /*function showYearTitles()
+  {
     // Another way to do this would be to create
     // the year texts once and then just hide them.
     var yearsData = d3.keys(yearsTitleX);
@@ -342,7 +348,7 @@ function bubbleChart()
       .attr('y', 40)
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
-  }
+  }*/
 
 
   /*
@@ -398,8 +404,10 @@ function bubbleChart()
    *
    * displayName is expected to be a string and either 'year' or 'all'.
    */
-  chart.toggleDisplay = function (displayName) {
-    if (displayName === 'year') {
+  chart.toggleDisplay = function (displayName)
+  {
+    if (displayName === 'year')
+    {
       splitBubbles();
     } else {
       groupBubbles();
@@ -431,7 +439,7 @@ function display(error, data)
 
   pureData = data;
   convertToNumericData(pureData);
-//console.log(pureData);
+
   myBubbleChart('#vis', data);
 }
 
@@ -463,7 +471,8 @@ function setupButtons() {
  * Helper function to convert a number into a string
  * and add commas to it to improve presentation.
  */
-function addCommas(nStr) {
+function addCommas(nStr)
+{
   nStr += '';
   var x = nStr.split('.');
   var x1 = x[0];
