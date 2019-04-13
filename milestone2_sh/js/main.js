@@ -6,8 +6,8 @@ var heading = {height: 150, width: 250};
 
 var poster = d3.select("#value-indicator")
 	.append("svg")
-	.attr('height', heading.height)
-  .attr('width', heading.width);
+	.attr('height', heading.height - 100)
+  .attr('width', heading.width + 200);
 
 //Sorry, had to clear it.
 /*var applicantCirclesSvg = d3.select("#applicant-circles")
@@ -58,43 +58,50 @@ function convertToNumericData(data){
 function printHeading()
 {
 	poster.append("text")
-			.text("Admission Highly Likely:")
-			.attr("x",0)
-			.attr("y",25)
+			.text("Admission Chance")
+			.attr("x", 0)
+			.attr("y", 20)
+			.attr('text-anchor','start')
+			.attr('font-weight','bold')
+			.attr('class','header');
+	poster.append("text")
+			.text("Highly Likely:")
+			.attr("x", 0)
+			.attr("y", 45)
 			.attr('text-anchor','start')
 			.attr('class','header');
 
 			poster.append("rect")
-				.attr("x",200)
-				.attr("y",3)
+				.attr("x", 100)
+				.attr("y", 26)
 				.attr("width",30)
 				.attr("height",30)
 				.attr("class","ahl");
 
 			poster.append("text")
-				.text("Admission Likely:")
-				.attr("x",42)
-				.attr("y",75)
+				.text("Likely:")
+				.attr("x", 150)
+				.attr("y", 45)
 				.attr('text-anchor','start')
 				.attr('class','header');
 
 				poster.append("rect")
-					.attr("x",200)
-					.attr("y",50)
+					.attr("x", 200)
+					.attr("y", 26)
 					.attr("width",30)
 					.attr("height",30)
 					.attr("class","al");
 
 			poster.append("text")
-						.text("Admission Not Likely:")
-						.attr("x",15)
-						.attr("y",125)
+						.text("Not Likely:")
+						.attr("x", 250)
+						.attr("y", 45)
 						.attr('text-anchor','start')
 						.attr('class','header');
 
 			poster.append("rect")
-							.attr("x",200)
-							.attr("y",100)
+							.attr("x", 330)
+							.attr("y", 26)
 							.attr("width",30)
 							.attr("height",30)
 							.attr("class","anl");

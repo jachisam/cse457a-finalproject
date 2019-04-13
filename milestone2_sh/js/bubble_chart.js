@@ -18,7 +18,8 @@ function bubbleChart()
   // Constants for sizing
   //var width = 940;
   //var height = 800;
-  var width = 600;
+  // var width = 600;
+  var width = 450;
   var height = 400;
 
 
