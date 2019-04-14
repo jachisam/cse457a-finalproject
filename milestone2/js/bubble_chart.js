@@ -21,9 +21,11 @@ function bubbleChart()
   //var width = 940;
   //var height = 800;
 
-  // var width = 600;
-  var width = 663;
-  var height = 400;
+  // var width = 663;
+  // var height = 400;
+
+  var width = 450;
+  var height = 450;
 
 
   // tooltip for mouseover functionality
@@ -219,8 +221,8 @@ function bubbleChart()
       //.attr('stroke', function (d) { return "d3.rgb(fillColor(d.GRE_Score)).darker(); })
       .attr('stroke', function (d) { return "black";})
       .attr('stroke-width', 2)
-      .on('mouseover', showDetail)
-      .on('mouseout', hideDetail)
+      // .on('mouseover', showDetail)
+      // .on('mouseout', hideDetail)
       .on("click", function(d,i)
       {
         clearApplicantTable();

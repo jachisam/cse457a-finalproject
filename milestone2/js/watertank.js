@@ -1,5 +1,6 @@
 var width = 1000,
-    height = 600;
+    height = 450;
+    //height = 600;
 var curr_admission_factor = "";
 var stop_measuring = 0;
 var num_admission_factors = 0;
@@ -62,8 +63,9 @@ d3v3.csv("../data/graduate-admissions/admission_cleaned.csv", function (error,da
         /admission_factor_coefficients_sum;
     }
 
-    var svg = d3v3.select("body").append("div")
-        .attr("id","watertank_div")
+    var svg = d3v3.select("#watertank_div")
+        //.select("body").append("div")
+        // .attr("id","watertank_div")
         .append("svg")
         .attr("id","watertank_svg")
         .attr("width", width)
