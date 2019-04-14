@@ -36,7 +36,9 @@ h2 {
   color: #906666;
 }
 
-
+h1.center{
+  text-align: center;
+}
 
 .ahl
 {

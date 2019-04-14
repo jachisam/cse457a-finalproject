@@ -6,8 +6,8 @@ var heading = {height: 150, width: 250};
 
 var poster = d3.select("#value-indicator")
 	.append("svg")
-	.attr('height', heading.height)
-  .attr('width', heading.width);
+	.attr('height', heading.height - 100)
+  .attr('width', heading.width + 200);
 
 var applicantTableSvg = d3.select("#applicant-table")
 	.append("svg")
@@ -47,43 +47,50 @@ function convertToNumericData(data)
 function printHeading()
 {
 	poster.append("text")
-			.text("Admission Highly Likely:")
-			.attr("x",0)
-			.attr("y",25)
+			.text("Admission Chance")
+			.attr("x", 0)
+			.attr("y", 20)
+			.attr('text-anchor','start')
+			.attr('font-weight','bold')
+			.attr('class','header');
+	poster.append("text")
+			.text("Highly Likely:")
+			.attr("x", 0)
+			.attr("y", 45)
 			.attr('text-anchor','start')
 			.attr('class','header');
 
 			poster.append("rect")
-				.attr("x",200)
-				.attr("y",3)
+				.attr("x", 100)
+				.attr("y", 26)
 				.attr("width",30)
 				.attr("height",30)
 				.attr("class","ahl");
 
 			poster.append("text")
-				.text("Admission Likely:")
-				.attr("x",42)
-				.attr("y",75)
+				.text("Likely:")
+				.attr("x", 150)
+				.attr("y", 45)
 				.attr('text-anchor','start')
 				.attr('class','header');
 
 				poster.append("rect")
-					.attr("x",200)
-					.attr("y",50)
+					.attr("x", 200)
+					.attr("y", 26)
 					.attr("width",30)
 					.attr("height",30)
 					.attr("class","al");
 
 			poster.append("text")
-						.text("Admission Not Likely:")
-						.attr("x",15)
-						.attr("y",125)
+						.text("Not Likely:")
+						.attr("x", 250)
+						.attr("y", 45)
 						.attr('text-anchor','start')
 						.attr('class','header');
 
 			poster.append("rect")
-							.attr("x",200)
-							.attr("y",100)
+							.attr("x", 330)
+							.attr("y", 26)
 							.attr("width",30)
 							.attr("height",30)
 							.attr("class","anl");
@@ -97,15 +104,32 @@ function drawApplicantTable(applicantStats)
   var p = d3.select("#applicant-table").select("#table-area").select("tbody");
   var tr = p.append("tr");
 	tr.attr("class", "new-trs")
-	tr.append("td").text(applicantStats.Serial_No);
-  tr.append("td").text(applicantStats.CGPA);
-  tr.append("td").text(applicantStats.GRE_Score);
-	tr.append("td").text(applicantStats.LOR);
-	tr.append("td").text(applicantStats.Research);
-	tr.append("td").text(applicantStats.SOP);
-	tr.append("td").text(applicantStats.TOEFL_Score);
-	tr.append("td").text(applicantStats.University_Rating);
-	tr.append("td").text(applicantStats.Chance_of_Admit);
+	tr.append("td").text(applicantStats.Serial_No).attr("id","Serial_No").attr("contenteditable", "true");
+  tr.append("td").text(applicantStats.CGPA).attr("id","CGPA").attr("contenteditable", "true");
+  tr.append("td").text(applicantStats.GRE_Score).attr("id","GRE_Score").attr("contenteditable", "true");
+	tr.append("td").text(applicantStats.LOR).attr("id","LOR").attr("contenteditable", "true");
+	tr.append("td").text(applicantStats.Research).attr("id","Research").attr("contenteditable", "true");
+	tr.append("td").text(applicantStats.SOP).attr("id","SOP").attr("contenteditable", "true");
+	tr.append("td").text(applicantStats.TOEFL_Score).attr("id","TOEFL_Score").attr("contenteditable", "true");
+	tr.append("td").text(applicantStats.University_Rating).attr("id","University_Rating").attr("contenteditable", "true");
+	tr.append("td").text(applicantStats.Chance_of_Admit).attr("id","Chance_of_Admit").attr("contenteditable", "true");
+}
+
+function grabButtonData(){
+	var array = [];
+	var Serial_No = document.getElementById("Serial_No").innerHTML;
+	var CGPA = document.getElementById("CGPA").innerHTML;
+	var GRE_Score = document.getElementById("GRE_Score").innerHTML;
+	var LOR = document.getElementById("LOR").innerHTML;
+	var Research = document.getElementById("Research").innerHTML;
+	var SOP = document.getElementById("SOP").innerHTML;
+	var TOEFL_Score = document.getElementById("TOEFL_Score").innerHTML;
+	var University_Rating = document.getElementById("University_Rating").innerHTML;
+	var Chance_of_Admit = document.getElementById("Chance_of_Admit").innerHTML;
+
+	array.push(Serial_No,CGPA,GRE_Score,LOR,Research,SOP,TOEFL_Score,University_Rating,Chance_of_Admit);
+	console.log(array);
+	return array;
 }
 
 function clearApplicantTable(){
@@ -169,8 +193,8 @@ function estimatedAdmissionsChance(applicant)
 		var altEstimate = b0 + applicant.GRE_Score * GRE_Score + applicant.TOEFL_Score*TOEFL_Score
 									+ applicant.LOR * LOR + applicant.CGPA * CGPA + applicant.Research * Research;
 
-		console.log("Chance of Admission estimate for " + applicant.Serial_No + " : " + parseFloat(estimate).toFixed(2) + " is predicted to "
-			+ parseFloat((estimate/applicant.Chance_of_Admit)*100).toFixed(2) + "% of actual chance (" + applicant.Chance_of_Admit +")");
+		// console.log("Chance of Admission estimate for " + applicant.Serial_No + " : " + parseFloat(estimate).toFixed(2) + " is predicted to "
+			// + parseFloat((estimate/applicant.Chance_of_Admit)*100).toFixed(2) + "% of actual chance (" + applicant.Chance_of_Admit +")");
 		//console.log("Estimate for " + applicant.Serial_No + " : " + estimate + " vs Alt estimate vs  actual: " + altEstimate + " " + applicant.Chance_of_Admit);
 
 		return estimate;
