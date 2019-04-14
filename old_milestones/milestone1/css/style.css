@@ -1,0 +1,65 @@
+/* Styles that clean up the layout;
+ * you can ignore these */
+div {
+    display: inline-block;
+    border: 1px solid lightgray;
+    margin: 1em;
+}
+
+div, span {
+    padding: 1em;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+table{
+  width:50%;
+}
+
+body
+ {
+#  font-family: 'Lato', sans-serif;
+#  background-color: #A0C6B2;
+}
+
+h1 {
+  color: indianred;
+  margin-top: 40px;
+  font-weight: 300;
+}
+h1.center{
+  text-align: center;
+}
+
+
+h2 {
+  font-weight: 100;
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #906666;
+}
+
+
+
+.ahl
+{
+  fill: green;
+}
+
+.al
+{
+  fill: blue;
+}
+
+
+.anl
+{
+  fill: purple;
+}
+
+h1 { font-family: Lato; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
+h3 { font-family: Lato; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; }
+p { font-family: Lato; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
+blockquote { font-family: Lato; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; }
+pre { font-family: Lato; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
