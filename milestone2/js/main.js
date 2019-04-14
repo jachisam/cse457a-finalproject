@@ -115,8 +115,21 @@ function drawApplicantTable(applicantStats)
 	tr.append("td").text(applicantStats.Chance_of_Admit).attr("id","Chance_of_Admit").attr("contenteditable", "true");
 }
 
-function grabButtonData(){
+function grabButtonData()
+{
 	var array = [];
+
+	array["Serial_No"] = document.getElementById("Serial_No").innerHTML;
+	array["CGPA"] = document.getElementById("CGPA").innerHTML;
+	array["GRE_Score"] = document.getElementById("GRE_Score").innerHTML;
+	array["LOR"] = document.getElementById("LOR").innerHTML;
+	array["Research"] = document.getElementById("Research").innerHTML;
+	array["SOP"] = document.getElementById("SOP").innerHTML;
+	array["TOEFL_Score"] = document.getElementById("TOEFL_Score").innerHTML;
+	array["University_Rating"] = document.getElementById("University_Rating").innerHTML;
+	array["Chance_of_Admit"] = document.getElementById("Chance_of_Admit").innerHTML;
+
+/*
 	var Serial_No = document.getElementById("Serial_No").innerHTML;
 	var CGPA = document.getElementById("CGPA").innerHTML;
 	var GRE_Score = document.getElementById("GRE_Score").innerHTML;
@@ -128,8 +141,15 @@ function grabButtonData(){
 	var Chance_of_Admit = document.getElementById("Chance_of_Admit").innerHTML;
 
 	array.push(Serial_No,CGPA,GRE_Score,LOR,Research,SOP,TOEFL_Score,University_Rating,Chance_of_Admit);
+*/
 	console.log(array);
-	return array;
+	console.dir(array);
+
+	var prediction = parseFloat(estimatedAdmissionsChance(array)).toFixed(2);
+
+	d3.select("#Chance_of_Admit").text(prediction);
+	return "Your estimated chance of admissions is " + prediction*100 + "%";
+	//return array;
 }
 
 function clearApplicantTable(){
@@ -186,10 +206,13 @@ function estimatedAdmissionsChance(applicant)
 
 		*/
 
+		//This is the most accurate result
 		var estimate = b0 + applicant.GRE_Score * GRE_Score + applicant.TOEFL_Score*TOEFL_Score +
 		 	applicant.University_Rating * University_Rating + applicant.SOP * SOP + applicant.LOR * LOR +
 			applicant.CGPA * CGPA + applicant.Research * Research;
 
+		//This estimate removes the non-significant variables (i.e. University_Rating and SOP)
+		//but gives us a lower estimate.
 		var altEstimate = b0 + applicant.GRE_Score * GRE_Score + applicant.TOEFL_Score*TOEFL_Score
 									+ applicant.LOR * LOR + applicant.CGPA * CGPA + applicant.Research * Research;
 
