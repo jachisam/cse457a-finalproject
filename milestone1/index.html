@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSE457: Final Project</title>
+    <link rel="stylesheet" href="../milestone1/css/style.css"/>
+    <!-- <script type="text/javascript" src="bower_components/d3/d3.js"></script>
+    <script type="text/javascript" src="bower_components/d3-tip/index.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.9.0/d3-legend.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
+<body>
+
+  <h1 class="center">WHAT ARE YOUR CHANCES AT GRADUATE SCHOOL? </h1>
+
+  <!-- Parent Container for displaying the applicants -->
+  <div id="value-indicator"></div> <br>
+
+  <div id="vis"></div> <br>
+
+  <!-- <div id="applicant-circles"></div> -->
+  <div id="applicant-table">
+    <table id="table-area">
+      <tr>
+        <th>Applicant Number</th>
+        <th>Cummulative GPA</th>
+        <th>GRE Score</th>
+        <th>Letter of Recommendation Rating</th>
+        <th>Research</th>
+        <th>SOP</th>
+        <th>TOEFL Score</th>
+        <th>University Rating</th>
+        <th>Chance of Admittance</th>
+      </tr>
+    </table>
+
+  <button type="button" onclick="alert(grabButtonData())">Update</button>
+  </div>
+
+
+
+  <!-- Load JS libraries: jQuery, bootstrap, D3 -->
+	<script src="../milestone1/js/jquery.min.js"></script>
+	<script src="../milestone1/js/bootstrap.min.js"></script>
+	<!-- <script src="../milestone1/js/d3.v4.min.js"></script> -->
+
+<!--just testing -->
+	<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+
+  <!-- Applicant Display implementation -->
+  <!-- <script src="../milestone1/js/main.js"></script> -->
+
+  <script src="../milestone1/js/tooltip.js"></script>
+  <script src="../milestone1/js/bubble_chart.js"></script>
+  <script src="../milestone1/js/main.js"></script>
+
+  <script src="../milestone1/js/d3.v3.js" language="JavaScript"></script>
+  <script src="../milestone1/js/liquidFillGauge.js" language="JavaScript"></script>
+  <script src="../milestone1/js/watertank.js"></script>
+
+
+
+</body>
+</html>
