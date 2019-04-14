@@ -29,7 +29,7 @@ function bubbleChart()
 
 
   // tooltip for mouseover functionality
-  var tooltip = floatingTooltip('gates_tooltip', 240);
+//  var tooltip = floatingTooltip('gates_tooltip', 240);
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
@@ -188,6 +188,11 @@ function bubbleChart()
         .attr('color', 'black')
         .attr('font-size', 15);
 
+        // add the tooltip area to the webpage
+    var tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
 
     // Create new circle elements each with class `bubble`.
     // There will be one circle.bubble for each object in the nodes array.
@@ -221,6 +226,28 @@ function bubbleChart()
       //.attr('stroke', function (d) { return "d3.rgb(fillColor(d.GRE_Score)).darker(); })
       .attr('stroke', function (d) { return "black";})
       .attr('stroke-width', 2)
+      .on("mouseover", function(d){
+        tooltip.transition() // http://bl.ocks.org/weiglemc/6185069
+                 .duration(200)
+                 .style("opacity", 1);
+                tooltip.html('<span class="name">Applicant Number: </span><span class="value">' +
+                              d.name +
+                              '</span><br/>' +
+                              '<span class="name">Chance of Admission: </span><span class="value">' +
+                              Math.round(addCommas(d.value*100)) + "%" +
+                              '</span><br/>' +
+                              '<span class="name">GRE Score: </span><span class="value">' +
+                              d.gre + '<br/><span class="name">More stats to come </span><span class="value">' +
+
+                              '</span>')
+                 .style("left", (d3.event.pageX + 4) + "px")
+                 .style("top", (d3.event.pageY - 24) + "px");
+      })
+      .on("mouseout", function(d) {
+            tooltip.transition()
+                 .duration(500)
+                 .style("opacity", 0);
+        })
       // .on('mouseover', showDetail)
       // .on('mouseout', hideDetail)
       .on("click", function(d,i)

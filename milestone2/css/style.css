@@ -63,3 +63,11 @@ h3 { font-family: Lato; font-size: 14px; font-style: normal; font-variant: norma
 p { font-family: Lato; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
 blockquote { font-family: Lato; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; }
 pre { font-family: Lato; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+
+.tooltip {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  pointer-events: none;
+  background-color: white;
+}
