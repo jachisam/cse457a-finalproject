@@ -36,12 +36,16 @@ var old_left_pan_x = 0;
 var old_left_pan_y = 0;
 var old_right_pan_x = 0;
 var old_right_pan_y = 0;
+var gauge_tank;
 
-
+var current_tank_level = 60;
 
 var degree_scale = d3v3.scale.linear()
     .domain([-1, 1])
     .range([85, -85]);
+
+var water_fill_scale = d3v3.scale.linear().domain([0,1*0.6894272486387328*60])
+    .range([20,100]);
 
 
 d3v3.csv("../data/graduate-admissions/admission_cleaned.csv", function (error,data) {
@@ -212,7 +216,7 @@ d3v3.csv("../data/graduate-admissions/admission_cleaned.csv", function (error,da
     for(var i = 0 ; i < num_admission_factors; ++i)
     {
         admission_factor_standards[admission_factors[i]]
-            = curr_row[admission_factors[i]]*Math.random()*1.5;
+            = curr_row[admission_factors[i]]*Math.random()*1.6;
     }
 
     d3v3.select("#g_control").append("svg")
@@ -220,7 +224,7 @@ d3v3.csv("../data/graduate-admissions/admission_cleaned.csv", function (error,da
         .attr("width",upper_right_side_data[0][0] - upper_left_side_data[0][0]+5)
         .attr("height",500)
         .attr("x",pump_closed_point[0] + 10 )
-        .attr("y",pump_closed_point[1]-440);
+        .attr("y",pump_closed_point[1]-450);
     var waterlevel = liquidFillGaugeDefaultSettings();
     waterlevel.circleColor = "#FF7777";
     waterlevel.textColor = "#FF4444";
@@ -238,23 +242,32 @@ d3v3.csv("../data/graduate-admissions/admission_cleaned.csv", function (error,da
     waterlevel.textSize = 0;
     waterlevel.waveCount = 3;
     /*
-
 */
-    var gauge_tank= loadLiquidFillGauge("water_in_tank_svg",
-        50, waterlevel);
-    gauge_tank.update(20);
+    gauge_tank= loadLiquidFillGauge("water_in_tank_svg",
+        60, waterlevel);
+    //gauge_tank.update(20);
     d3v3.select("#water_in_tank_svg").select("g").select("g").select("circle")
         .attr("r","500");
 
-    var measuring = setInterval(measure_one_by_one,
-        3000);
 
 
+    d3v3.select("#g_control").append("path").attr("id","marker").attr("d",
+        lineGenerator([[upper_right_side_data[0][0],150],
+            [upper_right_side_data[0][0]-100,150]]))
+        .style("stroke","red");
+
+
+
+    var start_measure = setTimeout(measure,3000);
 
 
 
 });
 
+function measure() {
+    var measuring = setInterval(measure_one_by_one,
+        3000);
+}
 
 
 function find_midpoint(point_x, point_y)
@@ -293,6 +306,26 @@ function measure_one_by_one()
         var percentage_diff = (curr_row[curr_admission_factor]-admission_factor_standards[curr_admission_factor])
             /admission_factor_standards[curr_admission_factor];
 
+        var curr_portion = admission_factor_weights[curr_admission_factor]*60;
+
+        console.log(admission_factor_weights);
+        var curr_addon = percentage_diff*curr_portion;
+
+        if(isNaN(curr_addon))
+        {
+            curr_addon = 0;
+        }
+        if(curr_addon < 1 && curr_addon>0)
+        {
+            curr_addon = 1;
+        }
+        current_tank_level = current_tank_level+Math.round(curr_addon);
+        console.log(current_tank_level);
+        if(current_tank_level>=80)
+        {
+            current_tank_level = 80;
+        }
+        gauge_tank.update(current_tank_level);
         if(percentage_diff >= 1)
         {
             percentage_diff = 1;
@@ -308,10 +341,6 @@ function measure_one_by_one()
         +" " + curr_admission_factor + " "
             + curr_row[curr_admission_factor] + " "
         + admission_factor_standards[curr_admission_factor] );
-
-
-
-
 
         var self = d3v3.select("#horizontal_bar").node();
         var cx = self.getBBox().x + self.getBBox().width/2;
@@ -352,14 +381,6 @@ function measure_one_by_one()
 
             .attr("y",right_vertical_data[1][1]);
 
-        /*var wave_data = [[new_right_end[0]+100,new_right_end[1]],
-            [new_right_end[0]+120,new_right_end[1]-20],
-                [new_right_end[0]+100,new_right_end[1]-40]];
-        d3v3.select("#g_control").append('path')
-            .attr("id","wave")
-            .attr("d",curveGenerator(wave_data))
-            .style("stroke","black")
-            .style("fill","pink");*/
 
         if(curr_row[curr_admission_factor]
             >= admission_factor_standards[curr_admission_factor])
@@ -386,9 +407,8 @@ function measure_one_by_one()
             water.waveAnimateTime = 1000;
             water.textSize = 0;
 
-
             var gauge_fill = loadLiquidFillGauge("water_in_svg", 60.44, water);
-            gauge_fill.update(30);
+            gauge_fill.update(water_fill_scale(curr_addon));
             d3v3.select("#water_in_svg").select("g").select("g").select("circle")
                 .attr("r",100);
 
@@ -399,6 +419,27 @@ function measure_one_by_one()
             d3v3.select("#pump_string").transition().attr("d",lineGenerator([new_left_end,pump_closed_point]));
             d3v3.select("#drain_closed").transition().style("opacity",0);
             d3v3.select("#drain_open").transition().style("opacity",1);
+
+            d3v3.select("#g_control").append("svg")
+                .attr("id","water_in_svg_drain")
+                .attr("width","190")
+                .attr("height","50")
+                .attr("x",drain_open_point[0] -80)
+                .attr("y",drain_open_point[1]-50);
+            var water = liquidFillGaugeDefaultSettings();
+            water.circleThickness = 0;
+            water.circleColor = "#808015";
+            water.textColor = "#555500";
+            water.waveTextColor = "#FFFFAA";
+            water.waveColor = "#33DAFF";
+            water.textVertPosition = 0.2;
+            water.waveAnimateTime = 1000;
+            water.textSize = 0;
+
+            var gauge_fill = loadLiquidFillGauge("water_in_svg_drain", 60.44, water);
+            gauge_fill.update(water_fill_scale(Math.abs(curr_addon)));
+            d3v3.select("#water_in_svg_drain").select("g").select("g").select("circle")
+                .attr("r",100);
 
         }
 
@@ -420,6 +461,7 @@ function convert_row_to_numeric(some_data) {
 function setback_balance_bar() {
 
     d3v3.select("#water_in_svg").transition().remove();
+    d3v3.select("#water_in_svg_drain").transition().remove();
     d3v3.select("#pump_string").transition().attr("d",lineGenerator([left_elbow,pump_closed_point]));
     d3v3.select("#drain_string").transition().attr("d",lineGenerator([right_elbow,drain_closed_point]));
 
