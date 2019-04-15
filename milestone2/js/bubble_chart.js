@@ -117,17 +117,17 @@ function bubbleChart()
 
       if(val > 0.89)
       {
-        clr = "green";
+        clr = "#28a745";
       }
       else
       {
         if( (0.7 < val) && (val < 0.9))
         {
-          clr = "blue";
+          clr = "#007bff";
         }
         else
         {
-            clr = "purple";
+            clr = "#dc3545";
         }
       }
 
@@ -207,17 +207,17 @@ function bubbleChart()
         //console.dir(d);
           if(d.value > 0.89)
           {
-            return "green";
+            return "#28a745";
           }
           else
           {
             if( (0.7 < d.value) && (d.value < 0.9))
             {
-              return "blue";
+              return "#007bff";
             }
             else
             {
-                return "purple";
+                return "#dc3545";
             }
           }
           //return fillColor(d.Chance_of_Admit*100);
@@ -256,7 +256,7 @@ function bubbleChart()
         pureData[parseInt(d.id.substring(1,d.id.length))].Serial_No = d.name;
         drawApplicantTable(pureData[parseInt(d.id.substring(1,d.id.length))]);
 
-       d3.select(this).style("fill","gold");
+       d3.select(this).style("fill","#ffc107");
        d3.select(this).attr("r",d.radius*1.5);
 
         svg.selectAll('.bubble')

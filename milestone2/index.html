@@ -14,12 +14,14 @@
 
 <body>
 
-  <h1 class="center">WHAT ARE YOUR CHANCES AT GRADUATE SCHOOL? </h1>
+  <h1 class="center text-muted">WHAT ARE YOUR CHANCES AT GRADUATE SCHOOL? </h1>
 
   <!-- Parent Container for displaying the applicants -->
-  <div id="value-indicator"></div> <br>
-
-  <div id="vis"></div>
+  <div id="value-indicator" class="bordered"></div> <br>
+  <div id="vis" class="bordered">
+    <caption><strong>Step 1:</strong> CHOOSE A CIRCLE</caption>
+    <br>
+  </div>
 
   <!-- Load JS libraries: jQuery, bootstrap, D3 -->
 	<script src="../milestone2/js/components/jquery.min.js"></script>
@@ -40,9 +42,23 @@
   <script src="../milestone2/js/liquidFillGauge.js" language="JavaScript"></script>
   <script src="../milestone2/js/watertank.js"></script>
 
-  <div id="watertank_div"></div>
+  <div id="watertank_div" class="bordered">
+    <caption> <strong>Step 3:</strong> VIEW CHANCE OF ADMISSION</caption>
+    <br>
+  </div>
+
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
   <div id="applicant-table">
-    <table id="table-area">
+    <caption><strong>Step 2:</strong> EDIT APPLICANT STATISTICS AS DESIRED</caption>
+    <table width="100%" id="table-area" class="table table-bordered table-hover">
       <tr>
         <th>Applicant Number</th>
         <th>Cummulative GPA</th>

@@ -1,33 +1,19 @@
 /* Styles that clean up the layout;
  * you can ignore these */
-div {
+div.bordered  {
     display: inline-block;
     border: 1px solid lightgray;
-    margin: 1em;
+    margin: 0.5em;
 }
 
 div, span {
     padding: 1em;
 }
 
-table, th, td {
-  border: 1px solid black;
-}
-table{
-  width:50%;
+body {
+  font-family: 'Lato', sans-serif;
 }
 
-body
- {
-#  font-family: 'Lato', sans-serif;
-#  background-color: #A0C6B2;
-}
-
-h1 {
-  color: indianred;
-  margin-top: 40px;
-  font-weight: 300;
-}
 h1.center{
   text-align: center;
 }
@@ -44,18 +30,21 @@ h2 {
 
 .ahl
 {
-  fill: green;
+  fill: #28a745;
+  /* green */
 }
 
 .al
 {
-  fill: blue;
+  fill: #007bff;
+  /* blue */
 }
 
 
 .anl
 {
-  fill: purple;
+  fill: #dc3545;
+  /* red */
 }
 
 h1 { font-family: Lato; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
@@ -69,5 +58,15 @@ pre { font-family: Lato; font-size: 13px; font-style: normal; font-variant: norm
   width: 250px;
   height: 100px;
   pointer-events: none;
-  background-color: white;
+  background-color: #fff;
+  opacity: 0.5;
+  border-radius: 25px;
+
 }
+
+/* table, th, td {
+  border: 1px solid black;
+}
+table{
+  width:50%;
+} */
