@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <title>CSE457: Final Project</title>
     <link rel="stylesheet" href="../milestone2/css/style.css"/>
-    <!-- <script type="text/javascript" src="bower_components/d3/d3.js"></script>
-    <script type="text/javascript" src="bower_components/d3-tip/index.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.9.0/d3-legend.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -26,18 +30,14 @@
   <!-- Load JS libraries: jQuery, bootstrap, D3 -->
 	<script src="../milestone2/js/components/jquery.min.js"></script>
 	<script src="../milestone2/js/components/bootstrap.min.js"></script>
-	<!-- <script src="../milestone2/js/d3.v4.min.js"></script> -->
-
-<!--just testing -->
-	<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+	<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script> 	<!-- <script src="../milestone2/js/d3.v4.min.js"></script> -->
 
   <!-- Applicant Display implementation -->
-  <!-- <script src="../milestone2/js/main.js"></script> -->
-
   <script src="../milestone2/js/components/tooltip.js"></script>
   <script src="../milestone2/js/bubble_chart.js"></script>
   <script src="../milestone2/js/main.js"></script>
 
+  <!-- Watertank Display implementation -->
   <script src="../milestone2/js/components/d3.v3.js" language="JavaScript"></script>
   <script src="../milestone2/js/liquidFillGauge.js" language="JavaScript"></script>
   <script src="../milestone2/js/watertank.js"></script>
@@ -47,15 +47,7 @@
     <br>
   </div>
 
-    <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+  <!-- Applicant Statistics Table Display implementation -->
   <div id="applicant-table">
     <caption><strong>Step 2:</strong> EDIT APPLICANT STATISTICS AS DESIRED</caption>
     <table width="100%" id="table-area" class="table table-bordered table-hover">
@@ -72,10 +64,8 @@
       </tr>
     </table>
 
-  <button type="button" onclick="alert(grabButtonData())">Update</button>
+  <button class="btn btn-light" type="button" onclick="alert(grabButtonData())">Update</button>
   </div>
-
-
 
 </body>
 </html>

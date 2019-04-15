@@ -237,9 +237,7 @@ function bubbleChart()
                               Math.round(addCommas(d.value*100)) + "%" +
                               '</span><br/>' +
                               '<span class="name">GRE Score: </span><span class="value">' +
-                              d.gre + '<br/><span class="name">More stats to come </span><span class="value">' +
-
-                              '</span>')
+                              d.gre ) //+ '<br/><span class="name">More stats to come </span><span class="value">' + '</span>'
                  .style("left", (d3.event.pageX + 4) + "px")
                  .style("top", (d3.event.pageY - 24) + "px");
       })
