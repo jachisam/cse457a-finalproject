@@ -7,6 +7,9 @@ var num_admission_factors = 0;
 var curr_measure_index = 0;
 var curr_row = {};
 var admission_factors = [];
+var start_measure;
+var measuring;
+var setback;
 var admission_factor_standards = {
     GRE_Score: 328,
     TOEFL_Score: 114,
@@ -16,6 +19,7 @@ var admission_factor_standards = {
     CGPA: 9.25,
     Research:1
 };
+var waterlevel;
 var lineGenerator = d3v3.svg.line();
 var admission_factor_coefficients =
     {
@@ -59,10 +63,14 @@ var water_fill_scale = d3v3.scale.linear().domain([0,1*0.6894272486387328*60])
 var ball_scale = d3v3.scale.linear().domain([0.001586,0.6894272486387328])
     .range([1,20]);
 
+var upper_right_side_data_reuse;
+
+var upper_left_side_data_reuse;
+
 
 d3v3.csv("../data/graduate-admissions/admission_cleaned.csv", function (error,data) {
-    console.log("read data in watertank.js");
-    console.log(data);
+    //console.log("read data in watertank.js");
+    //console.log(data);
 
     for (var field in admission_factor_coefficients)
     {
@@ -235,13 +243,21 @@ d3v3.csv("../data/graduate-admissions/admission_cleaned.csv", function (error,da
     convert_row_to_numeric(curr_row);
 
 
+
+
+
+upper_right_side_data_reuse = upper_right_side_data;
+upper_left_side_data_reuse = upper_left_side_data;
+
+
+    d3v3.select("#water_in_tank_svg").remove();
     d3v3.select("#g_control").append("svg")
         .attr("id","water_in_tank_svg")
-        .attr("width",upper_right_side_data[0][0] - upper_left_side_data[0][0]+5)
+        .attr("width",500+5)
         .attr("height",500)
         .attr("x",pump_closed_point[0] + 10 )
         .attr("y",pump_closed_point[1]-450);
-    var waterlevel = liquidFillGaugeDefaultSettings();
+    waterlevel = liquidFillGaugeDefaultSettings();
     waterlevel.circleColor = "#FF7777";
     waterlevel.textColor = "#FF4444";
     waterlevel.waveTextColor = "#FFAAAA";
@@ -268,31 +284,9 @@ d3v3.csv("../data/graduate-admissions/admission_cleaned.csv", function (error,da
 
 
     d3v3.select("#g_control").append("path").attr("id","marker").attr("d",
-        lineGenerator([[upper_right_side_data[0][0],150],
-            [upper_right_side_data[0][0]-100,150]]))
+        lineGenerator([[upper_right_side_data_reuse[0][0],150],
+            [upper_right_side_data_reuse[0][0]-100,150]]))
         .style("stroke","red");
-
-
-
-
-
-
-
-
-});
-
-function start_measure_when_update_clicked(data_from_update)
-{
-
-    console.log("ready to update in watertank.js");
-    curr_row = data_from_update;
-    var serial_no = curr_row['Serial_No'];
-    d3v3.select("#serial_display").text("Current applicant's serial number: "
-        + serial_no);
-
-    delete curr_row['Serial_No'];
-    convert_row_to_numeric(curr_row);
-    console.log(curr_row);
 
     d3v3.select("#g_control").append("circle")
         .attr("id","left_ball")
@@ -305,12 +299,38 @@ function start_measure_when_update_clicked(data_from_update)
         .attr("cx",0)
         .attr("cy",0)
         .attr("r",0);
-    var start_measure = setTimeout(measure,3000);
+
+
+
+
+
+});
+
+function start_measure_when_update_clicked(data_from_update)
+{
+
+    //gauge_tank.update(60);
+    console.log("ready to update in watertank.js");
+    curr_row = data_from_update;
+    var serial_no = curr_row['Serial_No'];
+    d3v3.select("#serial_display").text("Current applicant's serial number: "
+        + serial_no);
+
+    delete curr_row['Serial_No'];
+    convert_row_to_numeric(curr_row);
+    //console.log(curr_row);
+
+
+
+
+    start_measure = setTimeout(measure,3000);
+    console.log("finish update in watertank.js");
+
 }
 
 
 function measure() {
-    var measuring = setInterval(measure_one_by_one,
+    measuring = setInterval(measure_one_by_one,
         3000);
 }
 
@@ -327,9 +347,9 @@ function measure_one_by_one()
 {
     if(stop_measuring == 1)
     {
-        //console.log("done with evaluating admission factors!");
-        curr_measure_index = 0;
-        curr_admission_factor = "";
+        ////console.log("done with evaluating admission factors!");
+       // curr_measure_index = 0;
+       // curr_admission_factor = "";
 
     }
 
@@ -339,14 +359,14 @@ function measure_one_by_one()
         // do something: change the balance
         curr_admission_factor = admission_factors[curr_measure_index];
 
-        if(curr_admission_factor == admission_factors[admission_factors.length-2])
+        if(curr_admission_factor == "Research")
         {
             stop_measuring = 1;
         }
 
-        //console.log(new Date().toLocaleTimeString());
-        //console.log(curr_admission_factor);
-        //console.log(curr_row);
+        ////console.log(new Date().toLocaleTimeString());
+        ////console.log(curr_admission_factor);
+        ////console.log(curr_row);
 
         d3v3.select("#current_factor")
             .text("Current admission factor: " + curr_admission_factor
@@ -359,7 +379,7 @@ function measure_one_by_one()
 
         var curr_portion = admission_factor_weights[curr_admission_factor]*60;
 
-        console.log(admission_factor_weights);
+        //console.log(admission_factor_weights);
         var curr_addon = percentage_diff*curr_portion;
 
         if(isNaN(curr_addon))
@@ -371,7 +391,7 @@ function measure_one_by_one()
             curr_addon = 1;
         }
         current_tank_level = current_tank_level+Math.round(curr_addon);
-        console.log(current_tank_level);
+        //console.log(current_tank_level);
         if(current_tank_level>=80)
         {
             current_tank_level = 80;
@@ -505,8 +525,11 @@ function measure_one_by_one()
 
         }
 
-        var setback = setTimeout(setback_balance_bar,2000);
-        ++curr_measure_index;
+        setback = setTimeout(setback_balance_bar,2000);
+        if(curr_measure_index < 6)
+        {
+            ++curr_measure_index;
+        }
     }
 
     // Eric White 314 332 7266

@@ -148,6 +148,53 @@ function grabButtonData()
 	console.dir(array);
 	curr_array_aka_current_row = array;
 
+	window.clearTimeout(start_measure);
+	window.clearTimeout(setback);
+	window.clearInterval(measuring);
+
+	d3v3.select("#water_in_tank_svg").remove();
+	d3v3.select("#current_factor").text("Current admission factor: ");
+	d3v3.select("#g_control").append("svg")
+		.attr("id","water_in_tank_svg")
+		.attr("width",500+5)
+		.attr("height",500)
+		.attr("x",pump_closed_point[0] + 10 )
+		.attr("y",pump_closed_point[1]-450);
+	waterlevel = liquidFillGaugeDefaultSettings();
+	waterlevel.circleColor = "#FF7777";
+	waterlevel.textColor = "#FF4444";
+	waterlevel.waveTextColor = "#FFAAAA";
+	waterlevel.waveColor = "#48A4B9";
+	waterlevel.circleThickness = 0;
+
+	waterlevel.textVertPosition = 0.8;
+	waterlevel.waveAnimateTime = 1000;
+	waterlevel.waveHeight = 0.01;
+	waterlevel.waveAnimate = false;
+	waterlevel.waveRise = false;
+	waterlevel.waveHeightScaling = false;
+	waterlevel.waveOffset = 0.05;
+	waterlevel.textSize = 0;
+	waterlevel.waveCount = 3;
+	/*
+*/
+	gauge_tank= loadLiquidFillGauge("water_in_tank_svg",
+		60, waterlevel);
+	//gauge_tank.update(20);
+	d3v3.select("#water_in_tank_svg").select("g").select("g").select("circle")
+		.attr("r","500");
+
+
+
+	d3v3.select("#g_control").append("path").attr("id","marker").attr("d",
+		lineGenerator([[upper_right_side_data_reuse[0][0],150],
+			[upper_right_side_data_reuse[0][0]-100,150]]))
+		.style("stroke","red");
+
+	stop_measuring = 0;
+	curr_measure_index = 0;
+	curr_admission_factor = "";
+	current_tank_level = 60;
 	start_measure_when_update_clicked(array);
 
 	var prediction = parseFloat(estimatedAdmissionsChance(array)).toFixed(2);
