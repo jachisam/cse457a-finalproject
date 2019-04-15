@@ -131,7 +131,7 @@ function bubbleChart()
         }
       }
 
-      result.id= index;
+      result.id= "c"+index;
       result.color= clr;
       //radius= radiusScale(+d.Chance_of_Admit),
       result.radius= 12*(+d.Chance_of_Admit);
@@ -253,8 +253,11 @@ function bubbleChart()
       .on("click", function(d,i)
       {
         clearApplicantTable();
-        pureData[d.id].Serial_No = d.name;
-        drawApplicantTable(pureData[d.id]);
+        pureData[parseInt(d.id.substring(1,d.id.length))].Serial_No = d.name;
+        drawApplicantTable(pureData[parseInt(d.id.substring(1,d.id.length))]);
+
+       d3.select(this).style("fill","gold");
+       d3.select(this).attr("r",d.radius*1.5);
 
         svg.selectAll('.bubble')
               .data(nodes)
@@ -262,6 +265,11 @@ function bubbleChart()
                 .duration(1500)
               .style("opacity", function(b)
             {
+                if(b.id != d.id)
+                {
+                  d3.select("#"+b.id).style("fill",b.color).attr("r",b.radius);
+
+                }
                 if( (b.id != d.id) && (b.color != d.color))
                 {
                   return 0.1;

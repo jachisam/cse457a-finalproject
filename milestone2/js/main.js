@@ -2,6 +2,8 @@ var width = 300, height = 400;
 var padding = 20;
 var margin = {top: 10, right: 15, bottom: 25, left: 5};
 
+var curr_array_aka_current_row = [];
+
 var heading = {height: 150, width: 250};
 
 var poster = d3.select("#value-indicator")
@@ -117,7 +119,7 @@ function drawApplicantTable(applicantStats)
 
 function grabButtonData()
 {
-	var array = [];
+	var array = {};
 
 	array["Serial_No"] = document.getElementById("Serial_No").innerHTML;
 	array["CGPA"] = document.getElementById("CGPA").innerHTML;
@@ -144,6 +146,9 @@ function grabButtonData()
 */
 	console.log(array);
 	console.dir(array);
+	curr_array_aka_current_row = array;
+
+	start_measure_when_update_clicked(array);
 
 	var prediction = parseFloat(estimatedAdmissionsChance(array)).toFixed(2);
 
