@@ -78,7 +78,7 @@
     <h3> Data.</h3>
     <p class="font-weight-normal font-italic">From where and how are you collecting your data? If appropriate, provide a link to your data sources.</p>
     <p class="font-weight-light">
-      We find our dataset on Kaggle. It is collected by a person named Mohan S Acharya, part of his paper on a relevant topic [1]. Link: <a href="https://www.kaggle.com/mohansacharya/graduate-admissions" target="_blank">https://www.kaggle.com/mohansacharya/graduate-admissions.</a> <br><br>
+      We find our dataset on Kaggle. It is collected by a person named Mohan S Acharya, as part of his paper on a relevant topic [1]. Link: <a href="https://www.kaggle.com/mohansacharya/graduate-admissions" target="_blank">https://www.kaggle.com/mohansacharya/graduate-admissions.</a> <br><br>
       [1] Mohan S Acharya, Asfia Armaan, Aneeta S Antony : A Comparison of Regression Models for Prediction of Graduate Admissions, IEEE International Conference on Computational Intelligence in Data Science 2019.
     </p>
 
@@ -171,19 +171,41 @@
      </ul>
 
 
-     <h3 id="m1"> Milestone 1 Changes and Updates</h3>
+     <h3 id="m1"> Milestone 2 Changes and Updates</h3>
      <p class="font-weight-light"><u>Milestone 1 and 2 Screenshots</u></p>
      <ul class="list-group">
        <li class="list-group-item">
-         <p class="font-weight-light">User selection had been implemented, but the water tank display was not.</p>
+         <p class="font-weight-light">In Milestone 1, user selection had been implemented, but the water tank display was not.</p>
          <img src="../process-book/images/milestone1.png" class="img-fluid">
+
        </li>
        <li class="list-group-item">
-         <p class="font-weight-light">In Milestone 2 the user selection was modified, the tables reconstucted, and water tank implemented.</p>
+         <p class="font-weight-light">In Milestone 2, the user selection is modified, the tables are reconstructed, and water tank is implemented.</p>
+         Description: The left hand side is a panel where users could select an applicant's data to view.
+         <br>
+         Every applicant, numbered by a serial number,  represented by a circle. The color of the circle indicates the applicant's
+         <br>
+         likelihood of being admitted to UCLA's graduate program. When a circle gets selected, it will change to a gold color and
+         it will become larger. All the other circles that fall in the same class of likelihood are also highlighted. After that, users
+         will ber able to see their selection's data, namely the values for each admission factor to populate the table. If the user
+         is satisfied with the selection, the user could click the update button and the animation eill start in the panel to
+         the right of the selection panel. Each factor , e.g. GRE, will be put on a balance, represented by a black ball proportional to
+         its numeric value and the factor's weight in the admission process.It will be compared against the "standard" for that factor,
+         which is calculated by taking the average of that factor among the applicants who are classified as being "highly likely" to
+         be admitted. The animation will go through each factor and either pump water in or drain water out. For example, if the applicant's
+         GRE score is higher than the "standard" GRE, water will be pumped.Otherwise, water will be drained. The amount of water being pumped or drained is
+         proportional to the percentage difference and the factor's weight in admission. As you can see, GRE score is
+         actually not so important in determining admission in our data. Eventually, if the water level in the tank is above the red line, it indicates that
+         the applicant is highly likely to be admitted.
          <img src="../process-book/images/milestone2.png" class="img-fluid">
+
+
+
+
        </li>
        <li class="list-group-item">
          <img src="../process-book/images/milestone2-1.png" class="img-fluid">
+
        </li>
      </ul>
 
@@ -191,3 +213,4 @@
 
 </body>
 </html>
+
