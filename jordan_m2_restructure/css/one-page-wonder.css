@@ -62,14 +62,14 @@ h6 {
 }
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
-  background-color: #FFC72C !important;
-  border-color: #FFC72C !important;
+  background-color: #FFD100 !important;
+  border-color: #FFD100 !important;
 }
 
-.btn-primary:focus {
+/* .btn-primary:focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(238, 9, 121, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(238, 9, 121, 0.5);
-}
+} */
 
 .btn-secondary {
   background-color: #ff6a00;

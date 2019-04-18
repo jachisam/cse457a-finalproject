@@ -90,41 +90,46 @@
             <div class="p-5">
               <h2 class="display-5"></h2>
               <br><br><br><br><br><br><br>
-              <h2 class="display-5">Edit the stats to test your applicant profile...</h2>
+              <h2 class="display-5">Edit the STATS to test your applicant profile and determine which scores will impact you the most...</h2>
               <br>
               <!-- Applicant Statistics Table Display implementation -->
               <div id="applicant-table">
                 <table id="table-area" class="table table-bordered table-hover table-striped">
+                  <tr>
+                    <th></th>
+                    <td><strong>STATS <strong></td>
+                  </tr>
+
                   <tr id="an">
-                    <th>Applicant Number</th>
+                    <th id="an_h">Applicant Number</th>
                   </tr>
                   <tr id="cgpa">
-                    <th>Cummulative GPA</th>
+                    <th id="cgpa_h">Cummulative GPA</th>
                   </tr>
                   <tr id="gre">
-                    <th>GRE Score</th>
+                    <th id="gre_h">GRE Score</th>
                   </tr>
                   <tr id="lor">
-                    <th>Letter of Recommendation Rating</th>
+                    <th id="lor_h">Letter of Recommendation Rating</th>
                   </tr>
                   <tr id="research">
-                    <th>Research</th>
+                    <th id="research_h">Research</th>
                   </tr>
                   <tr id="sop">
-                    <th>Statement of Purpose Strength</th>
+                    <th id="sop_h">Statement of Purpose Strength</th>
                   </tr>
                   <tr id="toefl">
-                    <th>TOEFL Score</th>
+                    <th id="toefl_h">TOEFL Score</th>
                   </tr>
                   <tr id="universityRating">
-                    <th>University Rating</th>
+                    <th id="universityRating_h">University Rating</th>
                   </tr>
                   <tr id="coa">
-                    <th>Chance of Admittance</th>
+                    <th id="coa_h">Chance of Admittance</th>
                   </tr>
                 </table>
 
-              <button class="btn btn-light" type="button" onclick="grabButtonData()">Update</button>
+              <button class="btn btn-primary" type="button" onclick="grabButtonData()">Update</button>
               </div>
             </div>
           </div>

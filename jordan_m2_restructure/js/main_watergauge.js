@@ -101,8 +101,7 @@ function printHeading()
 
 function drawApplicantTable(applicantStats)
 {
-  //console.log(applicantStats)
-  var applicantStatsLength = 8;
+
   var p = d3.select("#applicant-table").select("#table-area").select("tbody");
   // var tr = p.append("t");
 	p.select("#an").append("td").text(applicantStats.Serial_No).attr("id","Serial_No").attr("contenteditable", "true").attr("class", "new-trs");
@@ -133,14 +132,22 @@ function grabButtonData(){
 
 	//Get the prediction for the array of values (i.e. the data in the table), send it to "estimatedAdmissionsChance" function, when the value comes back, limit it to 2 places after the decimal
 	var prediction = parseFloat(estimatedAdmissionsChance(array)).toFixed(2);
-
 	//use d3 to select the chance of Admission text box and put the new prediction in it.
 	d3.select("#Chance_of_Admit").text(prediction);
-	console.log(array);
-	console.dir(array);
+	// console.log(array); console.dir(array);
 	var coa = document.getElementById("Chance_of_Admit").innerHTML;
 	gauge1.update(coa*100);
-
+	// var variables = estimatedVariableChances(array);
+	// var p = d3.select("#applicant-table").select("#table-area");
+	// p.select("#an").append("td").text(array["Serial_No"]).attr("id","CGPA").attr("class", "new-trs");
+  // p.select("#cgpa").append("td").text(" (" + variables["CGPA"] + "%)").attr("id","CGPA").attr("class", "new-trs");
+  // p.select("#gre").append("td").text(" (" + variables["GRE_Score"] + "%)").attr("id","GRE_Score").attr("class", "new-trs"); //  p.select("#gre_h").append("text").text(" (" + variables["GRE_Score"] + "%)").attr("id","GRE_Score").attr("contenteditable", "true").attr("class", "new-trs");
+	// p.select("#lor").append("td").text(" (" + variables["LOR"] + "%)").attr("id","LOR").attr("class", "new-trs");
+	// p.select("#research").append("td").text(" (" + variables["Research"] + "%)").attr("id","Research").attr("class", "new-trs");
+	// p.select("#sop").append("td").text(" (" + variables["SOP"] + "%)").attr("id","SOP").attr("class", "new-trs");
+	// p.select("#toefl").append("td").text(" (" + variables["TOEFL_Score"] + "%)").attr("id","TOEFL_Score").attr("class", "new-trs");
+	// p.select("#universityRating").append("td").text(" (" + variables["University_Rating"] + "%)").attr("id","University_Rating").attr("class", "new-trs");
+	// p.select("#coa").append("td").text(coa*100+"%").attr("id","University_Rating").attr("class", "new-trs");
 
 	//Throw the estimate on the screen for our (you, me, and Z's benefit)
 	return "Your estimated chance of admissions is " + prediction*100 + "%";
@@ -189,3 +196,23 @@ function estimatedAdmissionsChance(applicant)
 		return estimate;
 }
 /*****************************New Functions - Steven Harris ********************/
+
+function estimatedVariableChances(applicant){
+	var b0 = -1.2757251;
+	var GRE_Score = 0.0018585;
+	var TOEFL_Score = 0.0027780;
+	var University_Rating =  0.0059414
+	var SOP = 0.0015861;
+	var LOR = 0.0168587;
+	var CGPA = 0.1183851;
+	var Research = 0.0243075;
+	var variables = {};
+	variables["CGPA"] = Math.round((applicant.CGPA * CGPA)*100)/100;
+	variables["GRE_Score"] = Math.round((applicant.GRE_Score * GRE_Score)*100)/100;
+	variables["LOR"] = Math.round((applicant.LOR * LOR)*100)/100;
+	variables["Research"] = Math.round((applicant.Research * Research)*100)/100;
+	variables["SOP"] = Math.round((applicant.SOP * SOP)*100)/100;
+	variables["TOEFL_Score"] = Math.round((applicant.TOEFL_Score*TOEFL_Score)*100)/100;
+	variables["University_Rating"] = Math.round((applicant.University_Rating * University_Rating)*100)/100;
+	return variables;
+}
