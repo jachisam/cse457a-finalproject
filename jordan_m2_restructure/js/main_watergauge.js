@@ -130,13 +130,13 @@ function grabButtonData(){
 	var array = {};
 
 	array["Serial_No"] = document.getElementById("Serial_No").innerHTML;
-	array["CGPA"] = document.getElementById("CGPA").innerHTML;
-	array["GRE_Score"] = document.getElementById("GRE_Score").innerHTML;
-	array["LOR"] = document.getElementById("LOR").innerHTML;
-	array["Research"] = document.getElementById("Research").innerHTML;
-	array["SOP"] = document.getElementById("SOP").innerHTML;
-	array["TOEFL_Score"] = document.getElementById("TOEFL_Score").innerHTML;
-	array["University_Rating"] = document.getElementById("University_Rating").innerHTML;
+	array["CGPA"] = parseFloat(document.getElementById("CGPA").innerHTML);
+	array["GRE_Score"] = parseInt(document.getElementById("GRE_Score").innerHTML);
+	array["LOR"] = parseFloat(document.getElementById("LOR").innerHTML);
+	array["Research"] = parseInt(document.getElementById("Research").innerHTML);
+	array["SOP"] = parseFloat(document.getElementById("SOP").innerHTML);
+	array["TOEFL_Score"] = parseInt(document.getElementById("TOEFL_Score").innerHTML);
+	array["University_Rating"] = parseInt(document.getElementById("University_Rating").innerHTML);
 	array["Chance_of_Admit"] = document.getElementById("Chance_of_Admit").innerHTML;
 
 	//Get the prediction for the array of values (i.e. the data in the table), send it to "estimatedAdmissionsChance" function, when the value comes back, limit it to 2 places after the decimal
