@@ -16,6 +16,9 @@
   <!-- Custom fonts for this template -->
   <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/bootstrap-slider.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/css/bootstrap-slider.min.css" /> -->
+  <script src="https://unpkg.com/d3-simple-slider"></script>
 
   <!-- Custom styles for this template -->
   <link href="css/one-page-wonder.css" rel="stylesheet">
@@ -87,6 +90,7 @@
               </div>
             </div>
 
+
           <div class="col-lg-6 order-lg-2">
             <div class="p-5">
               <h2 class="display-5"></h2>
@@ -98,35 +102,83 @@
                 <table id="table-area" class="table table-bordered table-hover table-striped">
                   <tr>
                     <th></th>
-                    <td><strong>STATS <strong></td>
+                    <!-- <td><strong>MODIFY STATS<strong></td> -->
+                    <td><strong>STATS<strong></td>
                   </tr>
 
                   <tr id="an">
-                    <th id="an_h">Applicant Number</th>
+                    <th id="an_h">Applicant ID</th>
+                    <!-- <td id="an_edit" contenteditable="true">Your Name</td> -->
+                    <!-- <td id="an_d"></td> -->
                   </tr>
                   <tr id="cgpa">
                     <th id="cgpa_h">Cummulative GPA</th>
+                    <!-- <td>
+                      <div class="slidecontainer">
+                        <input id="cgpa_edit" type="range" min="0" max="10" value="5" onchange="alert(slider())">
+                        <option label="0 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 10">
+                      </div>
+                    </td> -->
+                    <!-- <td id="cgpa_d"></td> -->
                   </tr>
                   <tr id="gre">
                     <th id="gre_h">GRE Score</th>
+                    <!-- <td>
+                      <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50">
+                      </div>
+                    </td> -->
+                    <!-- <td id="gre_d"></td> -->
                   </tr>
                   <tr id="lor">
                     <th id="lor_h">Letter of Recommendation Rating</th>
+                    <!-- <td>
+                      <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50">
+                      </div>
+                    </td> -->
+                    <!-- <td id="lor_d"></td> -->
                   </tr>
                   <tr id="research">
                     <th id="research_h">Research</th>
+                    <!-- <td>
+                      <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50">
+                      </div>
+                    </td> -->
+                    <!-- <td id="research_d"></td> -->
                   </tr>
                   <tr id="sop">
                     <th id="sop_h">Statement of Purpose Strength</th>
+                    <!-- <td>
+                      <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50">
+                      </div>
+                    </td> -->
+                    <!-- <td id="sop_d"></td> -->
                   </tr>
                   <tr id="toefl">
                     <th id="toefl_h">TOEFL Score</th>
+                    <!-- <td>
+                      <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50">
+                      </div>
+                    </td> -->
+                    <!-- <td id="toefl_d"></td> -->
                   </tr>
                   <tr id="universityRating">
                     <th id="universityRating_h">University Rating</th>
+                    <!-- <td>
+                      <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50">
+                      </div>
+                    </td> -->
+                    <!-- <td id="universityRating_d"></td> -->
                   </tr>
                   <tr id="coa">
                     <th id="coa_h">Chance of Admittance</th>
+                    <!-- <td> </td> -->
+                    <!-- <td id="coa_d"></td> -->
                   </tr>
                 </table>
 

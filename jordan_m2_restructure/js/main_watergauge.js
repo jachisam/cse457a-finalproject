@@ -103,7 +103,6 @@ function drawApplicantTable(applicantStats)
 {
 
   var p = d3.select("#applicant-table").select("#table-area").select("tbody");
-  // var tr = p.append("t");
 	p.select("#an").append("td").text(applicantStats.Serial_No).attr("id","Serial_No").attr("contenteditable", "true").attr("class", "new-trs");
   p.select("#cgpa").append("td").text(applicantStats.CGPA).attr("id","CGPA").attr("contenteditable", "true").attr("class", "new-trs");
   p.select("#gre").append("td").text(applicantStats.GRE_Score).attr("id","GRE_Score").attr("contenteditable", "true").attr("class", "new-trs");
@@ -113,6 +112,16 @@ function drawApplicantTable(applicantStats)
 	p.select("#toefl").append("td").text(applicantStats.TOEFL_Score).attr("id","TOEFL_Score").attr("contenteditable", "true").attr("class", "new-trs");
 	p.select("#universityRating").append("td").text(applicantStats.University_Rating).attr("id","University_Rating").attr("contenteditable", "true").attr("class", "new-trs");
 	p.select("#coa").append("td").text(applicantStats.Chance_of_Admit).attr("id","Chance_of_Admit").attr("contenteditable", "true").attr("class", "new-trs");
+
+	// p.select("#an_d").text(applicantStats.Serial_No).attr("id","Serial_No").attr("contenteditable", "true").attr("class", "new-trs");
+	// p.select("#cgpa_d").text(applicantStats.CGPA).attr("id","CGPA").attr("contenteditable", "true").attr("class", "new-trs");
+	// p.select("#gre_d").text(applicantStats.GRE_Score).attr("id","GRE_Score").attr("contenteditable", "true").attr("class", "new-trs");
+ 	// p.select("#lor_d").text(applicantStats.LOR).attr("id","LOR").attr("contenteditable", "true").attr("class", "new-trs");
+ 	// p.select("#research_d").text(applicantStats.Research).attr("id","Research").attr("contenteditable", "true").attr("class", "new-trs");
+ 	// p.select("#sop_d").text(applicantStats.SOP).attr("id","SOP").attr("contenteditable", "true").attr("class", "new-trs");
+ 	// p.select("#toefl_d").text(applicantStats.TOEFL_Score).attr("id","TOEFL_Score").attr("contenteditable", "true").attr("class", "new-trs");
+ 	// p.select("#universityRating_d").text(applicantStats.University_Rating).attr("id","University_Rating").attr("contenteditable", "true").attr("class", "new-trs");
+ 	// p.select("#coa_d").text(applicantStats.Chance_of_Admit).attr("id","Chance_of_Admit").attr("contenteditable", "true").attr("class", "new-trs");
 
 	gauge1.update(applicantStats.Chance_of_Admit*100);
 }
