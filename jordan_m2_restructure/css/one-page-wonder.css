@@ -91,12 +91,16 @@ h6 {
 
 .tooltip {
   position: absolute;
-  width: 270px;
-  height: 100px;
+  width: 205px;
+  height: 90px;
   pointer-events: none;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #003B5C;
+  color: #fff;
   opacity: 0.5;
   border-radius: 5px;
+  padding: 1em;
+  border
 
 }
 .ahl {
