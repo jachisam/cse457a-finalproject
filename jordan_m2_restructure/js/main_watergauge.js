@@ -149,6 +149,10 @@ function grabButtonData(){
 		document.getElementById("Chance_of_Admit").innerHTML = 1;
 		coa = 1;
 	}
+	if(coa < 0){
+		document.getElementById("Chance_of_Admit").innerHTML = 0;
+		coa = 0;
+	}
 	gauge1.update(coa*100);
 	// var variables = estimatedVariableChances(array);
 	// var p = d3.select("#applicant-table").select("#table-area");
