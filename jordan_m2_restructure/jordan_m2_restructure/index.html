@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>One Page Wonder - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/one-page-wonder.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">How Likely Are You To Get Into UCLA?</h1>
+        <a href="#vis" class="btn btn-primary btn-xl rounded-pill mt-5">Browse the Applicant Pool</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div  class="col-lg-6 order-lg-2">
+          <h2 class="display-5"></h2>
+          <!-- <br><br><br><br><br><br><br><br><br> -->
+          <div id="vis" class="p-5"> </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-5"></h2>
+            <!-- <br><br><br><br><br><br><br><br><br><br><br> -->
+            <h2 class="display-4">Select an applicant...</h2>
+            <p>The bubble chart displays the applicant pool from 2018. Select a circle to see that applicant's chance of being accepted in UCLA Graduate School.</p>
+            <div id="value-indicator" class="bordered"></div> <br>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Load JS libraries: jQuery, bootstrap, D3 -->
+	<script src="../jordan_m2_restructure/js/components/jquery.min.js"></script>
+	<script src="../jordan_m2_restructure/js/components/bootstrap.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script> 	<!-- <script src="../milestone2/js/d3.v4.min.js"></script> -->
+
+  <!-- Applicant Display implementation -->
+  <script src="../jordan_m2_restructure/js/components/tooltip.js"></script>
+  <script src="../jordan_m2_restructure/js/bubble_chart.js"></script>
+  <!-- <script src="../js/main.js"></script> -->
+  <script src="../jordan_m2_restructure/js/main_watergauge.js"></script>
+
+
+  <!-- Watertank Display implementation -->
+  <script src="../jordan_m2_restructure/js/components/d3.v3.js" language="JavaScript"></script>
+  <!-- <script src="../js/liquidFillGauge_mod.js" language="JavaScript"></script>
+  <script src="../js/watertank.js"></script> -->
+  <script src="../jordan_m2_restructure/js/liquidFillGauge.js" language="JavaScript"></script>
+
+
+  <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-5"></h2>
+              <br><br><br><br><br><br><br><br><br>
+              <svg id="fillgauge1" width="100%" height="500"></svg>
+                <script src="../jordan_m2_restructure/js/watergauge.js" language="JavaScript"></script>
+              </div>
+            </div>
+
+          <div class="col-lg-6 order-lg-2">
+            <div class="p-5">
+              <h2 class="display-5"></h2>
+              <br><br><br><br><br><br><br>
+              <h2 class="display-5">Edit the stats to test your applicant profile...</h2>
+              <br>
+              <!-- Applicant Statistics Table Display implementation -->
+              <div id="applicant-table">
+                <table id="table-area" class="table table-bordered table-hover table-striped">
+                  <tr id="an">
+                    <th>Applicant Number</th>
+                  </tr>
+                  <tr id="cgpa">
+                    <th>Cummulative GPA</th>
+                  </tr>
+                  <tr id="gre">
+                    <th>GRE Score</th>
+                  </tr>
+                  <tr id="lor">
+                    <th>Letter of Recommendation Rating</th>
+                  </tr>
+                  <tr id="research">
+                    <th>Research</th>
+                  </tr>
+                  <tr id="sop">
+                    <th>Statement of Purpose Strength</th>
+                  </tr>
+                  <tr id="toefl">
+                    <th>TOEFL Score</th>
+                  </tr>
+                  <tr id="universityRating">
+                    <th>University Rating</th>
+                  </tr>
+                  <tr id="coa">
+                    <th>Chance of Admittance</th>
+                  </tr>
+                </table>
+
+              <button class="btn btn-light" type="button" onclick="alert(grabButtonData())">Update</button>
+              </div>
+            </div>
+          </div>
+
+          </div>
+        </div>
+    </section>
+
+  <!-- Footer -->
+  <!-- <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">CSE 457A Spring 2019 Final Project ~ Jordie Chisam, Steven Harris, Zhengliang Liu</p>
+    </div>
+  </footer> -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
