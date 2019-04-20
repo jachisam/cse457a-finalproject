@@ -121,3 +121,9 @@ h6 {
 .slidecontainer {
   width: 100%;
 }
+
+#btn_custom{
+    position: absolute;
+    bottom: 120;
+    right: 0;
+  }
