@@ -67,7 +67,14 @@ function printHeading()
 				.attr("y", 26)
 				.attr("width",30)
 				.attr("height",30)
-				.attr("class","ahl");
+				.attr("class","ahl")
+				.on("click",function () {
+					d3.selectAll("circle[fill='#C3D7EE']").style("opacity",1);
+					d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
+					d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
+
+				})
+			;
 
 			poster.append("text")
 				.text("70% - 90%:")
@@ -81,7 +88,13 @@ function printHeading()
 					.attr("y", 26)
 					.attr("width",30)
 					.attr("height",30)
-					.attr("class","al");
+					.attr("class","al")
+					.on("click",function () {
+						d3.selectAll("circle[fill='#C3D7EE']").style("opacity",0.1);
+						d3.selectAll("circle[fill='#2774AE']").style("opacity",1);
+						d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
+
+					});
 
 			poster.append("text")
 						.text("Below 70%:")
@@ -95,7 +108,13 @@ function printHeading()
 							.attr("y", 26)
 							.attr("width",30)
 							.attr("height",30)
-							.attr("class","anl");
+							.attr("class","anl")
+				.on("click",function () {
+					d3.selectAll("circle[fill='#C3D7EE']").style("opacity",0.1);
+					d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
+					d3.selectAll("circle[fill='#003B5C']").style("opacity",1);
+
+				});
 
 }
 
