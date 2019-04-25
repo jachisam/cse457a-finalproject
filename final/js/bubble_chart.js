@@ -35,19 +35,6 @@ function bubbleChart()
   // on which view mode is selected.
   var center = { x: width / 2, y: height / 2 };
 
-  var yearCenters = {
-    2008: { x: width / 3, y: height / 2 },
-    2009: { x: width / 2, y: height / 2 },
-    2010: { x: 2 * width / 3, y: height / 2 }
-  };
-
-  // X locations of the year titles.
-  var yearsTitleX = {
-    2008: 160,
-    2009: width / 2,
-    2010: width - 160
-  };
-
   // @v4 strength to apply to the position forces
   var forceStrength = 0.3;
 
@@ -291,6 +278,8 @@ function bubbleChart()
       d3.select(this).style("fill","#ffc107");
       d3.select(this).attr("r",d.radius*1.5);
 
+      generate_chart(d);
+
       window.location = '#applicant-table'
     });
 
@@ -453,31 +442,6 @@ function display(error, data)
   myBubbleChart('#vis', data);
 }
 
-/*
-* Sets up the layout buttons to allow for toggling between view modes.
-*/
-/*
-function setupButtons() {
-  d3.select('#toolbar')
-  .selectAll('.button')
-  .on('click', function () {
-    // Remove active class from all buttons
-    d3.selectAll('.button').classed('active', false);
-    // Find the button just clicked
-    var button = d3.select(this);
-
-    // Set it as the active button
-    button.classed('active', true);
-
-    // Get the id of the button
-    var buttonId = button.attr('id');
-
-    // Toggle the bubble chart based on
-    // the currently clicked button.
-    myBubbleChart.toggleDisplay(buttonId);
-  });
-}
-*/
 
 /*
 * Helper function to convert a number into a string

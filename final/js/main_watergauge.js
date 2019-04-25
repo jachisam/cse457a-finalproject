@@ -33,7 +33,7 @@ d3.csv(graduate_admissions_data,function(data)
 
 function convertToNumericData(data)
 {
-		data.forEach(function(d){
+		data.forEach(function(d,index){
 		d.CGPA = parseFloat(d.CGPA);
 		d.Chance_of_Admit = parseFloat(d.Chance_of_Admit);
 		d.GRE_Score = parseInt(d.GRE_Score);
@@ -145,7 +145,9 @@ function drawApplicantTable(applicantStats)
 	gauge1.update(applicantStats.Chance_of_Admit*100);
 }
 
-function grabButtonData(){
+function grabButtonData()
+{
+
 	var array = {};
 
 	array["Serial_No"] = document.getElementById("Serial_No").innerHTML;
@@ -157,6 +159,7 @@ function grabButtonData(){
 	array["TOEFL_Score"] = parseInt(document.getElementById("TOEFL_Score").innerHTML);
 	array["University_Rating"] = parseInt(document.getElementById("University_Rating").innerHTML);
 	array["Chance_of_Admit"] = document.getElementById("Chance_of_Admit").innerHTML;
+
 
 	//Get the prediction for the array of values (i.e. the data in the table), send it to "estimatedAdmissionsChance" function, when the value comes back, limit it to 2 places after the decimal
 	var prediction = parseFloat(estimatedAdmissionsChance(array)).toFixed(2);
@@ -184,6 +187,12 @@ function grabButtonData(){
 	// p.select("#toefl").append("td").text(" (" + variables["TOEFL_Score"] + "%)").attr("id","TOEFL_Score").attr("class", "new-trs");
 	// p.select("#universityRating").append("td").text(" (" + variables["University_Rating"] + "%)").attr("id","University_Rating").attr("class", "new-trs");
 	// p.select("#coa").append("td").text(coa*100+"%").attr("id","University_Rating").attr("class", "new-trs");
+
+
+		array["name"] = +array["Serial_No"];
+		array["value"] = +array["Chance_of_Admit"];
+		console.log(array);
+		generate_chart(array);
 
 	//Throw the estimate on the screen for our (you, me, and Z's benefit)
 	return "Your estimated chance of admissions is " + prediction*100 + "%";
