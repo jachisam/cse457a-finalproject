@@ -11,9 +11,9 @@ function generate_chart(subject)
 
   var currentData = [];
   var threshold = 0.0;
+  studentData = currentData;
 
-
-  threshold = subject.value;
+  threshold = +subject.value;
 
   console.log(threshold);
 
@@ -25,7 +25,8 @@ function generate_chart(subject)
 
     studentData.forEach(function(d,index)
     {
-      if(d.Chance_of_Admit >= threshold)
+      //if(d.Chance_of_Admit >= threshold)
+      if( (d.Chance_of_Admit < threshold*1.05) || (d.Chance_of_Admit > threshold*0.95))
       {
         d.Serial_No = index;
         currentData.push(d);
@@ -63,7 +64,7 @@ var xAxis = d3.axisBottom()
 
 var yAxis = d3.axisLeft()
     .scale(y)
-    .ticks(10, "%");
+    .ticks(11, "%");
 
 var svg = d3.select("#vis2").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -72,8 +73,8 @@ var svg = d3.select("#vis2").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   x.domain(data.map(function(d) { return d.Serial_No; }));
-  y.domain([0, d3.max(data, function(d) { return d.Chance_of_Admit; })]);
-
+  //y.domain([0, d3.max(data, function(d) { return d.Chance_of_Admit; })]);
+  y.domain([0, 1]);
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
@@ -98,7 +99,8 @@ var svg = d3.select("#vis2").append("svg")
       .attr("y", function(d) { return y(d.Chance_of_Admit); })
       .attr("fill",function(d)
       {
-        if(d.Serial_No == subject.name)
+        //if(d.Serial_No == subject.name)
+        if(d.Chance_of_Admit == subject.value)
         {
           return "red";
         }

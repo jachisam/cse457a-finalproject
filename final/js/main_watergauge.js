@@ -190,11 +190,10 @@ function grabButtonData()
 
 
 		array["name"] = +array["Serial_No"];
-		array["value"] = +array["Chance_of_Admit"];
-		console.log(array);
-		generate_chart(array);
+		array["value"] = +prediction;
 
-	//Throw the estimate on the screen for our (you, me, and Z's benefit)
+		generate_chart(array);
+//Throw the estimate on the screen for our (you, me, and Z's benefit)
 	return "Your estimated chance of admissions is " + prediction*100 + "%";
 	// return array;
 }
