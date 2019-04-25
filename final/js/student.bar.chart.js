@@ -102,11 +102,11 @@ var svg = d3.select("#vis2").append("svg")
         //if(d.Serial_No == subject.name)
         if(d.Chance_of_Admit == subject.value)
         {
-          return "red";
+          return "#FFD100";
         }
         else
         {
-            return "steelblue";
+            return "#2774AE";
         }
 
       })

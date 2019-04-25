@@ -11,6 +11,11 @@ var poster = d3.select("#value-indicator")
 	.attr('height', heading.height - 100)
   .attr('width', heading.width + 200);
 
+var selected_applicant = d3.select("#selected-applicant")
+	.append("svg")
+	.attr('height', heading.height - 100)
+  .attr('width', heading.width + 200);
+
 var applicantTableSvg = d3.select("#applicant-table")
 	.append("svg")
 	.attr("height", height-400)
@@ -29,6 +34,7 @@ d3.csv(graduate_admissions_data,function(data)
 	convertToNumericData(data);
 	testDataProjections(data);
 	printHeading();
+	printApplicant();
 });
 
 function convertToNumericData(data)
@@ -49,7 +55,7 @@ function convertToNumericData(data)
 function printHeading()
 {
 	poster.append("text")
-			.text("Chance of Admission")
+			.text("Select a Chance of Admission Range")
 			.attr("x", 0)
 			.attr("y", 20)
 			.attr('text-anchor','start')
@@ -62,60 +68,81 @@ function printHeading()
 			.attr('text-anchor','start')
 			.attr('class','header');
 
-			poster.append("rect")
-				.attr("x", 100)
-				.attr("y", 26)
-				.attr("width",30)
-				.attr("height",30)
-				.attr("class","ahl")
-				.on("click",function () {
-					d3.selectAll("circle[fill='#C3D7EE']").style("opacity",1);
-					d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
-					d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
+	poster.append("rect")
+		.attr("x", 100)
+		.attr("y", 26)
+		.attr("width",30)
+		.attr("height",30)
+		.attr("class","ahl")
+		.on("click",function () {
+			d3.selectAll("circle[fill='#C3D7EE']").style("opacity",1);
+			d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
+			d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
 
-				})
-			;
+		});
 
-			poster.append("text")
-				.text("70% - 90%:")
-				.attr("x", 160)
-				.attr("y", 45)
-				.attr('text-anchor','start')
-				.attr('class','header');
+		poster.append("text")
+			.text("70% - 90%:")
+			.attr("x", 160)
+			.attr("y", 45)
+			.attr('text-anchor','start')
+			.attr('class','header');
 
-				poster.append("rect")
-					.attr("x", 255)
-					.attr("y", 26)
-					.attr("width",30)
-					.attr("height",30)
-					.attr("class","al")
-					.on("click",function () {
-						d3.selectAll("circle[fill='#C3D7EE']").style("opacity",0.1);
-						d3.selectAll("circle[fill='#2774AE']").style("opacity",1);
-						d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
+		poster.append("rect")
+			.attr("x", 255)
+			.attr("y", 26)
+			.attr("width",30)
+			.attr("height",30)
+			.attr("class","al")
+			.on("click",function () {
+				d3.selectAll("circle[fill='#C3D7EE']").style("opacity",0.1);
+				d3.selectAll("circle[fill='#2774AE']").style("opacity",1);
+				d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
+			});
+		poster.append("text")
+					.text("Below 70%:")
+					.attr("x", 310)
+					.attr("y", 45)
+					.attr('text-anchor','start')
+					.attr('class','header');
+		poster.append("rect")
+						.attr("x", 410)
+						.attr("y", 26)
+						.attr("width",30)
+						.attr("height",30)
+						.attr("class","anl")
+			.on("click",function () {
+				d3.selectAll("circle[fill='#C3D7EE']").style("opacity",0.1);
+				d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
+				d3.selectAll("circle[fill='#003B5C']").style("opacity",1);
+			});
+}
 
-					});
-
-			poster.append("text")
-						.text("Below 70%:")
-						.attr("x", 310)
-						.attr("y", 45)
-						.attr('text-anchor','start')
-						.attr('class','header');
-
-			poster.append("rect")
-							.attr("x", 410)
-							.attr("y", 26)
-							.attr("width",30)
-							.attr("height",30)
-							.attr("class","anl")
-				.on("click",function () {
-					d3.selectAll("circle[fill='#C3D7EE']").style("opacity",0.1);
-					d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
-					d3.selectAll("circle[fill='#003B5C']").style("opacity",1);
-
-				});
-
+function printApplicant(){
+	selected_applicant.append("text")
+			.text("Chance of Admission")
+			.attr("x", 0)
+			.attr("y", 20)
+			.attr('text-anchor','start')
+			.attr('font-weight','bold')
+			.attr('class','header');
+	selected_applicant.append("text")
+			.text("Above 90%:")
+			.attr("x", 0)
+			.attr("y", 45)
+			.attr('text-anchor','start')
+			.attr('class','header');
+	selected_applicant.append("rect")
+			.attr("x", 100)
+			.attr("y", 26)
+			.attr("width",30)
+			.attr("height",30)
+			.attr("class","ahl")
+			.on("click",function () {
+				d3.selectAll("circle[fill='#C3D7EE']").style("opacity",1);
+				d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
+				d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
+			});
 }
 
 function drawApplicantTable(applicantStats)
@@ -131,17 +158,6 @@ function drawApplicantTable(applicantStats)
 	p.select("#toefl").append("td").text(applicantStats.TOEFL_Score).attr("id","TOEFL_Score").attr("contenteditable", "true").attr("class", "new-trs");
 	p.select("#universityRating").append("td").text(applicantStats.University_Rating).attr("id","University_Rating").attr("contenteditable", "true").attr("class", "new-trs");
 	p.select("#coa").append("td").text(applicantStats.Chance_of_Admit).attr("id","Chance_of_Admit").attr("contenteditable", "true").attr("class", "new-trs");
-
-	// p.select("#an_d").text(applicantStats.Serial_No).attr("id","Serial_No").attr("contenteditable", "true").attr("class", "new-trs");
-	// p.select("#cgpa_d").text(applicantStats.CGPA).attr("id","CGPA").attr("contenteditable", "true").attr("class", "new-trs");
-	// p.select("#gre_d").text(applicantStats.GRE_Score).attr("id","GRE_Score").attr("contenteditable", "true").attr("class", "new-trs");
- 	// p.select("#lor_d").text(applicantStats.LOR).attr("id","LOR").attr("contenteditable", "true").attr("class", "new-trs");
- 	// p.select("#research_d").text(applicantStats.Research).attr("id","Research").attr("contenteditable", "true").attr("class", "new-trs");
- 	// p.select("#sop_d").text(applicantStats.SOP).attr("id","SOP").attr("contenteditable", "true").attr("class", "new-trs");
- 	// p.select("#toefl_d").text(applicantStats.TOEFL_Score).attr("id","TOEFL_Score").attr("contenteditable", "true").attr("class", "new-trs");
- 	// p.select("#universityRating_d").text(applicantStats.University_Rating).attr("id","University_Rating").attr("contenteditable", "true").attr("class", "new-trs");
- 	// p.select("#coa_d").text(applicantStats.Chance_of_Admit).attr("id","Chance_of_Admit").attr("contenteditable", "true").attr("class", "new-trs");
-
 	gauge1.update(applicantStats.Chance_of_Admit*100);
 }
 
