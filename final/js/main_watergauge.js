@@ -54,68 +54,74 @@ function convertToNumericData(data)
 
 function printHeading()
 {
-	poster.append("text")
-			.text("Select a Chance of Admission Range")
-			.attr("x", 0)
-			.attr("y", 20)
-			.attr('text-anchor','start')
-			.attr('font-weight','bold')
-			.attr('class','header');
-	poster.append("text")
-			.text("Above 90%:")
-			.attr("x", 0)
-			.attr("y", 45)
-			.attr('text-anchor','start')
-			.attr('class','header');
-
-	poster.append("rect")
-		.attr("x", 100)
-		.attr("y", 26)
-		.attr("width",30)
-		.attr("height",30)
-		.attr("class","ahl")
-		.on("click",function () {
-			d3.selectAll("circle[fill='#C3D7EE']").style("opacity",1);
-			d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
-			d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
-
-		});
-
 		poster.append("text")
-			.text("70% - 90%:")
-			.attr("x", 160)
-			.attr("y", 45)
-			.attr('text-anchor','start')
-			.attr('class','header');
+            .text("Chance of Admission")
+            .attr("x", 0)
+            .attr("y", 20)
+            .attr('text-anchor','start')
+            .attr('font-weight','bold')
+            .attr('class','header');
+    poster.append("text")
+            .text("Above 90%:")
+            .attr("x", 0)
+            .attr("y", 45)
+            .attr('text-anchor','start')
+            .attr('class','header');
 
-		poster.append("rect")
-			.attr("x", 255)
-			.attr("y", 26)
-			.attr("width",30)
-			.attr("height",30)
-			.attr("class","al")
-			.on("click",function () {
-				d3.selectAll("circle[fill='#C3D7EE']").style("opacity",0.1);
-				d3.selectAll("circle[fill='#2774AE']").style("opacity",1);
-				d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
-			});
-		poster.append("text")
-					.text("Below 70%:")
-					.attr("x", 310)
-					.attr("y", 45)
-					.attr('text-anchor','start')
-					.attr('class','header');
-		poster.append("rect")
-						.attr("x", 410)
-						.attr("y", 26)
-						.attr("width",30)
-						.attr("height",30)
-						.attr("class","anl")
-			.on("click",function () {
-				d3.selectAll("circle[fill='#C3D7EE']").style("opacity",0.1);
-				d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
-				d3.selectAll("circle[fill='#003B5C']").style("opacity",1);
-			});
+            poster.append("rect")
+                .attr("x", 100)
+                .attr("y", 26)
+                .attr("width",30)
+                .attr("height",30)
+                .attr("class","ahl")
+                .on("click",function () {
+                    d3.selectAll("circle[fill='#C3D7EE']").style("opacity",1);
+                    d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
+                    d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
+
+                })
+            ;
+
+            poster.append("text")
+                .text("70% - 90%:")
+                .attr("x", 160)
+                .attr("y", 45)
+                .attr('text-anchor','start')
+                .attr('class','header');
+
+                poster.append("rect")
+                    .attr("x", 255)
+                    .attr("y", 26)
+                    .attr("width",30)
+                    .attr("height",30)
+                    .attr("class","al")
+                    .on("click",function () {
+                        d3.selectAll("circle[fill='#C3D7EE']").style("opacity",0.1);
+                        d3.selectAll("circle[fill='#2774AE']").style("opacity",1);
+                        d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
+                    });
+            poster.append("text")
+                        .text("Below 70%:")
+                        .attr("x", 310)
+                        .attr("y", 45)
+                        .attr('text-anchor','start')
+                        .attr('class','header');
+
+            poster.append("rect")
+                            .attr("x", 410)
+                            .attr("y", 26)
+                            .attr("width",30)
+                            .attr("height",30)
+                            .attr("class","anl")
+                .on("click",function () {
+                    d3.selectAll("circle[fill='#C3D7EE']").style("opacity",0.1);
+                    d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
+                    d3.selectAll("circle[fill='#003B5C']").style("opacity",1);
+
+                    $('*').filter(function() {
+                        return $(this).css("fill") === 'rgb(195, 215, 238)';
+                    }).style("opacity",0.1);
+                });
 }
 
 function printApplicant(){
