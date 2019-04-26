@@ -131,19 +131,6 @@ function grabButtonData()
 	array["University_Rating"] = document.getElementById("University_Rating").innerHTML;
 	array["Chance_of_Admit"] = document.getElementById("Chance_of_Admit").innerHTML;
 
-/*
-	var Serial_No = document.getElementById("Serial_No").innerHTML;
-	var CGPA = document.getElementById("CGPA").innerHTML;
-	var GRE_Score = document.getElementById("GRE_Score").innerHTML;
-	var LOR = document.getElementById("LOR").innerHTML;
-	var Research = document.getElementById("Research").innerHTML;
-	var SOP = document.getElementById("SOP").innerHTML;
-	var TOEFL_Score = document.getElementById("TOEFL_Score").innerHTML;
-	var University_Rating = document.getElementById("University_Rating").innerHTML;
-	var Chance_of_Admit = document.getElementById("Chance_of_Admit").innerHTML;
-
-	array.push(Serial_No,CGPA,GRE_Score,LOR,Research,SOP,TOEFL_Score,University_Rating,Chance_of_Admit);
-*/
 	console.log(array);
 	console.dir(array);
 	curr_array_aka_current_row = array;

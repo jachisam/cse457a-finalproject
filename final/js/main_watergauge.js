@@ -120,29 +120,18 @@ function printHeading()
 
 function printApplicant(){
 	selected_applicant.append("text")
-			.text("Chance of Admission")
+			.text("Selected Applicant:")
 			.attr("x", 0)
 			.attr("y", 20)
 			.attr('text-anchor','start')
 			.attr('font-weight','bold')
 			.attr('class','header');
-	selected_applicant.append("text")
-			.text("Above 90%:")
-			.attr("x", 0)
-			.attr("y", 45)
-			.attr('text-anchor','start')
-			.attr('class','header');
 	selected_applicant.append("rect")
-			.attr("x", 100)
-			.attr("y", 26)
-			.attr("width",30)
+			.attr("x", 150)
+			.attr("y", 1)
+			.attr("width",10)
 			.attr("height",30)
-			.attr("class","ahl")
-			.on("click",function () {
-				d3.selectAll("circle[fill='#C3D7EE']").style("opacity",1);
-				d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
-				d3.selectAll("circle[fill='#003B5C']").style("opacity",0.1);
-			});
+			.attr("class","yellow");
 }
 
 function drawApplicantTable(applicantStats)
