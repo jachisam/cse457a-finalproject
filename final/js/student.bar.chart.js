@@ -80,7 +80,7 @@ var svg = d3.select("#vis2").append("svg")
   //     .attr("transform", "translate(0," + height + ")")
   //     .call(xAxis);
   svg.append("text")
-      .attr("id","x_axis_label")
+      // .attr("id","x_axis_label")
       .attr("transform",
           "translate(" + (width/2) + "," +
           (height + 25) + ")")
@@ -88,7 +88,7 @@ var svg = d3.select("#vis2").append("svg")
           .text("Applicant Pool");
 
   svg.append("text")
-      .attr("id","y_axis_label")
+      // .attr("id","y_axis_label")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left-4)
       .attr("x",0 - (height / 2))
