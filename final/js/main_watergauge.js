@@ -126,14 +126,14 @@ function printHeading()
 
 function printApplicant(){
 	selected_applicant.append("text")
-			.text("Selected Applicant:")
+			.text("Selected Applicant Range:")
 			.attr("x", 0)
 			.attr("y", 20)
 			.attr('text-anchor','start')
 			.attr('font-weight','bold')
 			.attr('class','header');
 	selected_applicant.append("rect")
-			.attr("x", 150)
+			.attr("x", 200)
 			.attr("y", 1)
 			.attr("width",10)
 			.attr("height",30)

@@ -67,8 +67,31 @@
               <h2 class="display-5"></h2>
               <br><br><br><br><br><br><br><br>
               <h2 class="display-5">See how you measure up against others in your selected range...</h2>
-              <p>Lets add some text here to explain what this means.... lalalalallalalalalallalalalalala llalalalalallallalalalallalalalalallallalalalallalalalalalla llalalalallalalalalallallalalalallalalalalallallalalalallalalalalallal</p>
+              <p>Here you can analyze the applicants in the same range of the applicant you selected earlier. Specifically, if the selected applicant has an 80% chance of admission that yellow bar is going to highlight plus or minus 5% of all applicants between 75% and 85% to show the similar applicants within range.</p>
               <div id="selected-applicant" class="bordered"></div> <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div  class="col-lg-6 order-lg-2">
+            <h2 class="display-5"></h2>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div id="select_and_graph_div">
+              <div id="select_div"></div><br>
+              <div id="multiple_histogram"></div>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-5"></h2>
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <h2 class="display-5">Analyze the applicant pool's range in statistics...</h2>
+              <p>This displays the pool of 2018's applicant variations for the statistics that are reviewed by UCLAs admissions committee.</p>
             </div>
           </div>
         </div>
@@ -86,6 +109,8 @@
 
   <script src="../final/js/bubble_chart.js"></script>
   <script src="../final/js/student.bar.chart.js"></script>
+  <script src="../final/js/components/d3.v4.min.js"></script>
+  <script src="../final/js/histogram.js"></script>
 
   <!-- Watertank Display implementation -->
   <script src="../final/js/components/d3.v3.js" language="JavaScript"></script>
@@ -98,7 +123,7 @@
           <div class="col-lg-6 order-lg-1">
             <div class="p-5">
               <h2 class="display-5"></h2>
-              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <svg id="fillgauge1" width="100%" height="500"></svg>
                 <script src="../final/js/watergauge.js" language="JavaScript"></script>
               </div>
@@ -108,7 +133,7 @@
           <div class="col-lg-6 order-lg-2">
             <div class="p-5">
               <h2 class="display-5"></h2>
-              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <h2 class="display-5">Edit the STATS to test your applicant profile and determine which scores will impact you the most...</h2>
               <br>
               <!-- Applicant Statistics Table Display implementation -->
@@ -148,6 +173,7 @@
                 </table>
 
               <button class="btn btn-primary" type="button" onclick="grabButtonData()">Update</button>
+              <button class="btn btn-primary" type="button" onclick="window.location.href='#vis';">Back To Selection</button>
 
               </div>
             </div>
@@ -157,14 +183,56 @@
         </div>
     </section>
 
-    <br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div id="btn_custom">
-      <button class="btn btn-primary" type="button" onclick="window.location.href='#vis';">Back To Selection</button>
     </div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#statistics">What Does Each Statistic Mean?</button>
+  <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#regression">How Do We Calculate Your Chance of Admittance?</button>
+  <a href="../process-book" target="_blank" class="btn btn-primary btn-lg float-right">Process Book</a>
+  <div class="modal fade" id="statistics" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">What does each statistic mean?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p> A <strong> cumulative grade point average (CGPA) </strong> is a calculation of the average of all of a student's total earned points divided by the possible number of points. This grading system calculates for all of his or her complete education career. Grade point averages can be unweighted (where all classes with the same number of credits have equal influence on the GPA) or weighted (where some classes are given more influence than others). </p>
+          <p> The <strong> Graduate Record Examinations (GRE) </strong> is a standardized test that is an admissions requirement for most graduate schools in the United States. According to ETS, the GRE aims to measure verbal reasoning, quantitative reasoning, analytical writing, and critical thinking skills that have been acquired over a long period of learning. The content of the GRE consists of certain specific algebra, geometry, arithmetic, and vocabulary sections. </p>
+          <p>A <strong> letter of recommendation or recommendation letter</strong>, also known as a letter of reference, reference letter or simply reference, is a document in which the writer assesses the qualities, characteristics, and capabilities of the person being recommended in terms of that individual's ability to perform a particular task or function. </p>
+          <p> <strong> Undergraduate research </strong> is the exploration of a specific topic within a field by an undergraduate student that makes an original contribution to the discipline. Students may work on their own, collaborate with faculty members, or seek enrollment in a research program within their field. </p>
+          <p> The <strong> Statement of Purpose </strong> is the single most important part of your application that will tell the admissions committee who you are, what has influenced your career path so far, your professional interests and where you plan to go from here. </p>
+          <p> <strong> Test of English as a Foreign Language (TOEFL) </strong> is a standardized test to measure the English language ability of non-native speakers wishing to enroll in English-speaking universities. The test is accepted by many English-speaking academic and professional institutions. TOEFL is one of the two major English-language tests in the world, the other being the IELTS. </p>
+          <p> <strong> College and university rankings </strong> are rankings of institutions in higher education which have been ranked on the basis of various combinations of various factors. None of the rankings give a comprehensive overview of the strengths of the institutions ranked because all select a range of easily quantifiable characteristics to base their results on. </p>
+          <h4><a href="https://grad.ucla.edu/admissions/" target="_blank">Learn More About UCLA's Graduate Process Here</a></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="regression" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">How do we calculate your chance of admittance?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p> Add content on the regression calculation breakdown here </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 

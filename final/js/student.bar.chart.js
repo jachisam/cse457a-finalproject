@@ -75,17 +75,33 @@ var svg = d3.select("#vis2").append("svg")
   x.domain(data.map(function(d) { return d.Serial_No; }));
   //y.domain([0, d3.max(data, function(d) { return d.Chance_of_Admit; })]);
   y.domain([0, 1]);
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+  // svg.append("g")
+  //     .attr("class", "x axis")
+  //     .attr("transform", "translate(0," + height + ")")
+  //     .call(xAxis);
+  svg.append("text")
+      .attr("id","x_axis_label")
+      .attr("transform",
+          "translate(" + (width/2) + "," +
+          (height + 25) + ")")
+      .style("text-anchor", "middle")
+          .text("Applicant Pool");
+
+  svg.append("text")
+      .attr("id","y_axis_label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left-4)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Chance of Admittance");
 
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 6)
+      .attr("y", 0 - margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("Frequency");
