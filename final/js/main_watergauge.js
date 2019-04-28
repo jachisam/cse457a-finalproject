@@ -118,9 +118,7 @@ function printHeading()
                     d3.selectAll("circle[fill='#2774AE']").style("opacity",0.1);
                     d3.selectAll("circle[fill='#003B5C']").style("opacity",1);
 
-                    $('*').filter(function() {
-                        return $(this).css("fill") === 'rgb(195, 215, 238)';
-                    }).style("opacity",0.1);
+                    //$('*').filter(function() {return $(this).css("fill") === 'rgb(195, 215, 238)';}).style("opacity",0.1);
                 });
 }
 

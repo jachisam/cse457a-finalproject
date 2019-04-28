@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f46ae209-92c3-468a-beaf-baddaec112a0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/js/bubble_chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/final/js/bubble_chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/js/main_watergauge.js" beforeDir="false" afterPath="$PROJECT_DIR$/final/js/main_watergauge.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/final/js/main_watergauge.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="100" column="25" selection-start-line="100" selection-start-column="25" selection-end-line="100" selection-end-column="25" />
+            <state relative-caret-position="414">
+              <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -37,13 +36,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/final/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-873">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            <state relative-caret-position="372">
+              <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/final/js/bubble_chart.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="310">
@@ -87,8 +86,8 @@
         <option value="$PROJECT_DIR$/milestone2/js/liquidFillGauge.js" />
         <option value="$PROJECT_DIR$/milestone2/js/watertank.js" />
         <option value="$PROJECT_DIR$/milestone2/js/main.js" />
-        <option value="$PROJECT_DIR$/final/js/main_watergauge.js" />
         <option value="$PROJECT_DIR$/final/js/bubble_chart.js" />
+        <option value="$PROJECT_DIR$/final/js/main_watergauge.js" />
       </list>
     </option>
   </component>
@@ -187,7 +186,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20150000" />
+    <option name="totallyTimeSpent" value="20468000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="291" y="25" width="931" height="798" extended-state="0" />
@@ -234,20 +233,6 @@
         <state relative-caret-position="-1384" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/final/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-873">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/final/js/main_watergauge.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="100" column="25" selection-start-line="100" selection-start-column="25" selection-end-line="100" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/final/js/bubble_chart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -255,6 +240,20 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/final/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/final/js/main_watergauge.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
         </state>
       </provider>
     </entry>
