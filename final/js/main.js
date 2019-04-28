@@ -45,7 +45,7 @@ function convertToNumericData(data)
     d.University_Rating = parseInt(d.University_Rating);
 	});
 }
-
+// This will print the 3 boxes displaying the ranges in the bubble chart section
 function printHeading()
 {
 	poster.append("text")
@@ -98,7 +98,7 @@ function printHeading()
 							.attr("class","anl");
 
 }
-
+//this creates 2nd column in the applicant table and populates it with values
 function drawApplicantTable(applicantStats)
 {
   //console.log(applicantStats)
@@ -116,7 +116,7 @@ function drawApplicantTable(applicantStats)
 	tr.append("td").text(applicantStats.University_Rating).attr("id","University_Rating").attr("contenteditable", "true");
 	tr.append("td").text(applicantStats.Chance_of_Admit).attr("id","Chance_of_Admit").attr("contenteditable", "true");
 }
-
+//this will grab the values from the applicant table and recalculate the regression to update the water gauge
 function grabButtonData()
 {
 	var array = {};
@@ -191,6 +191,7 @@ function grabButtonData()
 	//return array;
 }
 
+//clears the applicant table fields
 function clearApplicantTable(){
   d3.selectAll(".new-trs").remove();
 }
@@ -198,6 +199,7 @@ function clearApplicantTable(){
 
 
 /*****************************New Functions - Steven Harris ********************/
+// all of the following fuction are products of the regression
 function testDataProjections(data)
 {
 	data.forEach(function(d, index)

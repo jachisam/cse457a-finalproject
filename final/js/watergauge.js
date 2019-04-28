@@ -12,7 +12,9 @@ function recalculate_formula(){
   formula = 100*(intercept+cgpa+gre+lor+research+sop+toefl+universityRating);
   return formula;
 }
-// console.log(recalculate_formula());
+//////////////////////////////////////////////////////////////////////////////////////
+// the following contains all of the functions to calculate the respective statistics
+//////////////////////////////////////////////////////////////////////////////////////
 
 function cgpa_calculation(){
   const cgpa_coef = 0.118385;
@@ -83,6 +85,7 @@ function chanceOfAdmittance_calculation(){
   return val;
 }
 
+//this function will call on the liquidFillGauge_mod.js to create the water guage
 function createGauge(level){
   config1 = liquidFillGaugeDefaultSettings();
   // config1.textVertPosition = 0.2;

@@ -51,7 +51,7 @@ function convertToNumericData(data)
     d.University_Rating = parseInt(d.University_Rating);
 	});
 }
-
+// This will print the 3 selected boxes displaying the ranges in the bubble chart section
 function printHeading()
 {
 		poster.append("text")
@@ -121,7 +121,7 @@ function printHeading()
                     //$('*').filter(function() {return $(this).css("fill") === 'rgb(195, 215, 238)';}).style("opacity",0.1);
                 });
 }
-
+// This will print the selected applicant box displaying the ranges in the bubble chart section
 function printApplicant(){
 	selected_applicant.append("text")
 			.text("Selected Applicant Range:")
@@ -137,7 +137,7 @@ function printApplicant(){
 			.attr("height",30)
 			.attr("class","yellow");
 }
-
+//this creates 2nd column in the applicant table and populates it with values
 function drawApplicantTable(applicantStats)
 {
 
@@ -153,7 +153,7 @@ function drawApplicantTable(applicantStats)
 	p.select("#coa").append("td").text(applicantStats.Chance_of_Admit).attr("id","Chance_of_Admit").attr("contenteditable", "true").attr("class", "new-trs");
 	gauge1.update(applicantStats.Chance_of_Admit*100);
 }
-
+//this will grab the values from the applicant table and recalculate the regression to update the water gauge
 function grabButtonData()
 {
 
@@ -206,13 +206,13 @@ function grabButtonData()
 	return "Your estimated chance of admissions is " + prediction*100 + "%";
 	// return array;
 }
-
+//this will remove the values from the applicant table
 function clearApplicantTable(){
   d3.selectAll(".new-trs").remove();
 }
 
 
-/*****************************New Functions - Steven Harris ********************/
+/*****************************Regression Functions - Steven Harris ********************/
 function testDataProjections(data)
 {
 	data.forEach(function(d, index)
@@ -220,7 +220,7 @@ function testDataProjections(data)
 		estimatedAdmissionsChance(d);
 	});
 }
-
+//more regression functions
 function estimatedAdmissionsChance(applicant)
 {
 	var b0 = -1.2757251;
@@ -249,7 +249,7 @@ function estimatedAdmissionsChance(applicant)
 		return estimate;
 }
 /*****************************New Functions - Steven Harris ********************/
-
+// more regression functions
 function estimatedVariableChances(applicant){
 	var b0 = -1.2757251;
 	var GRE_Score = 0.0018585;
