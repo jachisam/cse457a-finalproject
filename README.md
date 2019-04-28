@@ -10,6 +10,6 @@
 2. <https://www.youtube.com/watch?v=86zZOGGB6P0&feature=youtu.be>
 # Sources/Libraries: <https://jachisam.github.io/cse457a-finalproject/process-book/#sources>
 1. js/liquidFillGauge.js <http://bl.ocks.org/brattonc/5e5ce9beee483220e2f6>
-.. however we did end up making quite a few changes to the library to fit out own project, these were made in liquidFillGauge_mod.js
+.. however we did end up making quite a few changes to the library to fit out own project, these were made in js/liquidFillGauge_mod.js
 2. Bootstrap v4 <https://getbootstrap.com/docs/4.3/getting-started/introduction/>
 .. Bootstrap was the main component we used in making the site (and process book) look aesthetically pleasing
