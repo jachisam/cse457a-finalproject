@@ -109,7 +109,7 @@ function bubbleChart()
       }
       else
       {
-        if( (0.7 < val) && (val < 0.9))
+        if( (0.7 < val) && (val <= 0.89))
         {
           clr = "#2774AE";
         }
@@ -192,13 +192,13 @@ function bubbleChart()
     .classed('bubble', true)
     .attr('r', 50)
     .attr('fill', function (d){
-      if(d.value > 0.9)
+      if(d.value > 0.89)
       {
         return "#C3D7EE";
       }
       else
       {
-        if( (0.7 < d.value) && (d.value < 0.9))
+        if( (0.7 < d.value) && (d.value <= 0.89))
         {
           return "#2774AE";
         }
