@@ -228,7 +228,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <p> Add content on the regression calculation breakdown here </p>
+          <img class="img-fluid mb-5" src="images/regression.png" alt="">
+          <p> <u>Formula:  </u>  <br> intercept + applicant GRE Score * 0.0018585  + applicant TOEFL Score * 0.0027780 +
+      		 	applicant University Rating * 0.0059414 + applicant SOP * 0.0015861 + applicant LOR * 0.0168587 +
+      			applicant CGPA * 0.1183851 + applicant Research * 0.0243075</p>
+          <p> The most important coefficients are GRE_Score, TOEFL_Score, LOR, CGPA, and Research but if you look at the estimates, the are all well below 17%. Some such as GRE_Score are about 0.18% so while those terms are significiant, that don't contribute much to the overall calculation. The greatest estimate is the intercept which can not be seen from our calculation. </p>
         </div>
       </div>
     </div>

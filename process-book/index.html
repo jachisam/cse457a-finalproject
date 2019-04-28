@@ -2,32 +2,76 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>CSE457: Final Project</title>
-    <link rel="stylesheet" href="../milestone2/css/style.css"/>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.9.0/d3-legend.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>CSE 457A ~ Admissions</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/freelancer.css" rel="stylesheet">
+
 </head>
 
-<body>
-  <h1 class="center text-muted">CSE 457A Project Proposal</h1>
-  <div class="starter-template"> <!-- text-center"> -->
-    <a href="#m1" class="text-center">Jump to M2 progress </a>
-    <br>
-    <br>
-    <h3> Basic Info. </h3>
-    <p class="font-weight-normal font-italic"> The project title, your names, e-mail addresses, IDs, a link to the project repository. </p>
-    <p class="font-weight-light">
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary2 fixed-top text-uppercase" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Admissions</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#m1-2">Milestone 1 & 2</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#ut">User Testing</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#presentation">Post-Presentation</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead bg-primary2 text-white text-center">
+    <div class="container">
+      <img class="img-fluid mb-5 d-block mx-auto" src="img/ucla.png" alt="" height="142" width="142">
+      <h1 class="text-uppercase mb-0">Admissions</h1>
+      <hr class="star-light">
+      <h2 class="font-weight-light mb-0">Visualizing potential UCLA graduate applicant's chance of admission.</h2>
+    </div>
+  </header>
+
+  <!-- Portfolio Grid Section -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Basic Info</h2><br>
+      <p class="text-center lead" >The project title, your names, e-mail addresses, IDs, a link to the project repository. </p>
+      <hr class="star-dark">
+      <p class="font-weight-light">
       <ul class="list-group">
         <li class="list-group-item">
-          <p class="font-weight-light"> Title: Visualizing UCLA graduate admission.</p>
+          <p class="font-weight-light"> Title: Visualizing UCLA graduate admissions.</p>
         </li>
         <li class="list-group-item">
           <p class="font-weight-light"> Names: Jordan Chisam, Steven Harris, Zhengliang Liu</p>
@@ -47,90 +91,161 @@
       </ul>
 
     </p>
+    </div>
+  </section>
 
-    <h3> Background and Motivation. </h3>
-    <p class="font-weight-normal font-italic">Discuss your motivations and reasons for choosing this project, especially any background or research interests that may have influenced your decision. </p>
-    <p class="font-weight-light">
+  <!-- About Section -->
+  <section class="bg-primary text-white mb-0" id="Background">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Background and Motivation</h2> <br>
+      <p class="text-center lead" >Discuss your motivations and reasons for choosing this project, especially any background or research interests that may have influenced your decision.</p>
+      <hr class="star-light mb-5">
+      <p class="font-weight-light">
           College admission statistics, including those for graduate schools are always of    great interest and importance for young people who are aspiring for getting better education. We have all gone through numerous applications. Our portfolios have all gone through numerous admission committees. Even though an applicant could evaluate her or his potentials for admissions, for the most part the admission process is a black box that provides little feedback. Finding out what factors lead to admission is certainly an important research topic with practical impacts. It would be very helpful if one could look at past admission data and make an assessment before investing the energy, time and money on an application for a particular school. Sadly, most schools never disclose such data. For those that do, the data might not be intuitive to be understood, More importantly, it is difficult to understand how exactly the measurements for each of the metrics factor into the final admission decision. Thus, we are very excited to start this project to visualize admission data with the aim of building an intuitive representation of the data. We found a dataset from UCLA on <a href="https://www.kaggle.com/mohansacharya/graduate-admissions/version/2" target="_blank">Kaggle</a> and we think it is a good start, especially given that there is such a scarcity of admission data and even less visualization with such data.
     </p>
+    </div>
+  </section>
 
-    <h3> Project Objectives. </h3>
-    <p class="font-weight-normal font-italic">Provide the primary questions you are trying to answer with your visualization. What would you like to learn and accomplish? List the benefits.</p>
-    <p class="font-weight-light">
+  <!-- Contact Section -->
+  <section id="Project">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Project Objectives</h2> <br>
+      <p class="text-center lead" >Provide the primary questions you are trying to answer with your visualization. What would you like to learn and accomplish? List the benefits.</p>
+      <hr class="star-dark mb-5">
+      <p class="font-weight-light">
       How to effectively visualize each factor’s contribution to the application process? With so many factors of consideration in the application process, it would be nice to be able to visualize each one of them clearly and effectively.
+      <p class="font-weight-light">  <u>Benefits: </u> </p>
+      <ul class="list">
+        <li>Provide mechanism to compare and contrast one’s performance as compared to their peers on a factor-by-factor basis.</li>
+        <li>Provide feedback for self assessment and allows students to understand where they fit in the academic spectrum.</li>
+        <li>While college selection isn’t so cut and dry, it can be a good indicator of realistic options for future schools as well give some indicators on future academic achievement. Essentially, a good visualization can help students break down the obscure admissions process into concrete information of students’ performances in relevant metrics.</li>
+        <li>Helps potential master students measure their chances of getting into a particular university. We, the developers could also learn something about a good school (e.g., UCLA)’s admission process.</li>
+        <li>How to intuitively convey the potential admission result? Instead of handing out raw data in row-column tables, will it be more intuitive and understandable to visualize the final admission result? In our dataset, the original authors provide their machine learning analysis results to indicate the probability of admission for a particular student. We plan to label the ones with greater than 80% probability as “admitted” and the rest as “not admitted”. We want to use an intuitive visualization to convey this result to users.</li>
+      </ul>
+      <p class="font-weight-light">  <u>Benefits: </u> </p>
+      <ul class="list">
+        <li>Intuitively convey the final result so users don’t need to dig into the rows and columns unless they really want to.</li>
+        <li>Make the data interpretation process more fun and exciting.</li>
+        <li>For us, we can sharpen our skills of using D3 to build a visualization that is intuitive, informative and useful.</li>
+        <li>While we may not be able to fully formulate those questions until we have a solid data presentation, it will be interesting to see what relationships emerge once we have a proper data presentation.</li>
+      </ul>
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-primary text-white mb-0" id="Data">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Data</h2> <br>
+      <p class="text-center lead" >From where and how are you collecting your data? If appropriate, provide a link to your data sources.</p>
+      <hr class="star-light mb-5">
+      <p class="font-weight-light">
+        We found our dataset on Kaggle. It is collected by a person named Mohan S Acharya, as part of his paper on a relevant topic [1]. <br> Link: <a href="https://www.kaggle.com/mohansacharya/graduate-admissions" target="_blank">https://www.kaggle.com/mohansacharya/graduate-admissions.</a> <br><br>
+  [1] Mohan S Acharya, Asfia Armaan, Aneeta S Antony : A Comparison of Regression Models for Prediction of Graduate Admissions, IEEE International Conference on Computational Intelligence in Data Science 2019.
     </p>
-    <p class="font-weight-light">  <u>Benefits: </u> </p>
-    <ul class="list">
-      <li>Provide mechanism to compare and contrast one’s performance as compared to their peers on a factor-by-factor basis.</li>
-      <li>Provide feedback for self assessment and allows students to understand where they fit in the academic spectrum.</li>
-      <li>While college selection isn’t so cut and dry, it can be a good indicator of realistic options for future schools as well give some indicators on future academic achievement. Essentially, a good visualization can help students break down the obscure admissions process into concrete information of students’ performances in relevant metrics.</li>
-      <li>Helps potential master students measure their chances of getting into a particular university. We, the developers could also learn something about a good school (e.g., UCLA)’s admission process.</li>
-      <li>How to intuitively convey the potential admission result? Instead of handing out raw data in row-column tables, will it be more intuitive and understandable to visualize the final admission result? In our dataset, the original authors provide their machine learning analysis results to indicate the probability of admission for a particular student. We plan to label the ones with greater than 80% probability as “admitted” and the rest as “not admitted”. We want to use an intuitive visualization to convey this result to users.</li>
-    </ul>
-    <p class="font-weight-light">  <u>Benefits: </u> </p>
-    <ul class="list">
-      <li>Intuitively convey the final result so users don’t need to dig into the rows and columns unless they really want to.</li>
-      <li>Make the data interpretation process more fun and exciting.</li>
-      <li>For us, we can sharpen our skills of using D3 to build a visualization that is intuitive, informative and useful.</li>
-      <li>While we may not be able to fully formulate those questions until we have a solid data presentation, it will be interesting to see what relationships emerge once we have a proper data presentation.</li>
-    </ul>
+    <div class="text-center mt-4">
+      <a class="btn btn-xl btn-outline-light" href="https://www.kaggle.com/mohansacharya/graduate-admissions/version/2">
+        Check out the dataset
+      </a>
+    </div>
+    </div>
+  </section>
 
-    <h3> Data.</h3>
-    <p class="font-weight-normal font-italic">From where and how are you collecting your data? If appropriate, provide a link to your data sources.</p>
-    <p class="font-weight-light">
-      We find our dataset on Kaggle. It is collected by a person named Mohan S Acharya, as part of his paper on a relevant topic [1]. Link: <a href="https://www.kaggle.com/mohansacharya/graduate-admissions" target="_blank">https://www.kaggle.com/mohansacharya/graduate-admissions.</a> <br><br>
-      [1] Mohan S Acharya, Asfia Armaan, Aneeta S Antony : A Comparison of Regression Models for Prediction of Graduate Admissions, IEEE International Conference on Computational Intelligence in Data Science 2019.
+  <section id="DataProcessing">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Data Processing</h2> <br>
+      <p class="text-center lead" >Do you expect to do substantial data cleanup? What quantities do you plan to derive from your data? How will data processing be implemented?</p>
+      <hr class="star-dark mb-5">
+      <p class="font-weight-light">
+        No, we do not expect to do substantial data cleanup. The dataset is very clean in the first place, nor is it particularly large. Data processing will likely be implemented with bash scripts or Python, or both.
     </p>
+    </div>
+  </section>
 
-    <h3> Data Processing.</h3>
-    <p class="font-weight-normal font-italic">Do you expect to do substantial data cleanup? What quantities do you plan to derive from your data? How will data processing be implemented?</p>
-    <p class="font-weight-light">
-    No, we do not expect to do substantial data cleanup. The dataset is very clean in the first place, nor is it particularly large. Data processing will likely be implemented with bash scripts or Python, or both.
+  <section class="bg-primary text-white mb-0" id="Background">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Visualization Design</h2> <br>
+      <p class="text-center lead" >How will you display your data? Provide some general ideas that you have for the visualization design. Create three alternative designs for your visualization. Create one final design that incorporates the best of your three designs. Describe your designs and justify your choices of visual encodings. You use the Five Design Sheet Methodology.</p>
+      <hr class="star-light mb-5">
+      <p class="font-weight-light">
+          College admission statistics, including those for graduate schools are always of    great interest and importance for young people who are aspiring for getting better education. We have all gone through numerous applications. Our portfolios have all gone through numerous admission committees. Even though an applicant could evaluate her or his potentials for admissions, for the most part the admission process is a black box that provides little feedback. Finding out what factors lead to admission is certainly an important research topic with practical impacts. It would be very helpful if one could look at past admission data and make an assessment before investing the energy, time and money on an application for a particular school. Sadly, most schools never disclose such data. For those that do, the data might not be intuitive to be understood, More importantly, it is difficult to understand how exactly the measurements for each of the metrics factor into the final admission decision. Thus, we are very excited to start this project to visualize admission data with the aim of building an intuitive representation of the data. We found a dataset from UCLA on <a href="https://www.kaggle.com/mohansacharya/graduate-admissions/version/2" target="_blank">Kaggle</a> and we think it is a good start, especially given that there is such a scarcity of admission data and even less visualization with such data.
     </p>
+    <div class="row">
+      <div class="col-md-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <i class="fas fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src="img/image1.jpg" alt="" width="300" height="100">
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <i class="fas fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src="img/image2.jpg" alt="">
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <i class="fas fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src="img/image3.jpg" alt="">
+        </a>
+      </div>
+      <!-- <div class="col-md-6 col-lg-4"> -->
+        <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <!-- <i class="fas fa-search-plus fa-3x"></i> -->
+            </div>
+          </div>
+          <img class="img-fluid" src="img/image4.jpg" alt="">
+        </a>
+      <!-- </div> -->
+    </div>
+    </div>
+  </section>
 
-    <h3> Visualization Design.</h3>
-    <p class="font-weight-normal font-italic">How will you display your data? Provide some general ideas that you have for the visualization design. Create three alternative designs for your visualization. Create one final design that incorporates the best of your three designs. Describe your designs and justify your choices of visual encodings. You use the Five Design Sheet Methodology.</p>
-    <p class="font-weight-light"><u>Design Sketches</u></p>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <p class="font-weight-light">(1) I use a “balance” to weigh a factor (e.g., gpa = 3.74) against a pre-calculated “sufficient level” (e.g., “3.8”). The size of the ball represents the value of the factor (such as “3.74”). If the balance favors that ID (in this case 37) 's GPA,it drags the bar upwards toward the line marked as "admitted", otherwise it loosens it down to get closer to the line marked as "reject". Gradually, as we go through every factor (GPA, TOEFL, GRE, recommendation letter, etc.)  it moves toward either rejection or admission. The strings between the balance and the purple bar acts as strings of control. The color of the objects are for pop-out effect only with no special meanings, for now. It is simple and intuitive but the largest problem is that.  The key is, with this design it is harder to differentiate the different importance of two different factors (e.g., GPA v.s. GRE score) because every factor shares that “sufficient” marker and it is hard to differentiate the effects visually.</p>
-        <img src="../process-book/images/image1.jpg" class="img-fluid" >
-      </li>
-      <li class="list-group-item">
-        <p class="font-weight-light">(2) This is a very rough sketch of a basic single page visualization that allows users to look at various graduate school applicant profiles. Each profile will show the variables that are taken into account during the graduate school admissions process. As the user clicks on a circle (representing an applicant profile), the page will move down and display a scatter plot with the selected user profile (highlighted and larger) compared with other user profiles (non-highlighted and smaller--to avoid clutter). On hover, the circles (profiles) will enlarge and show their respective variables.</p>
-        <img src="../process-book/images/image2.jpg" class="img-fluid" >
-        <p class="font-weight-light">The downside of this visualization is that it is not clear how certain variables affect chance of admission. Additionally, it may be a bit monotonous for the user to go back and forth from the top of the page to the bottom. Our final design should take these faults into account and make it clear which variables have stronger influence, in addition to making user interaction easy rather than tedious.</p>
-      </li>
-      <li class="list-group-item">
-        <p class="font-weight-light">(3) Another alternative design was to use a bubble graph visualization. This would depicted all of the probabilities of admission in 10% ranges. The lower part of the visualization would be used for clusters of low chances of admission, while the higher part of the visualization would be used for higher chances of admission. The size of the bubbles would demonstrate the portion of applicants that fall into that range. Each bubble would contain various applicants that fell into the chance of acceptance rate represented. On hover (or click), the variables of (3) Another alternative design was to use a bubble graph visualization. This would depicted all of the probabilities of admission in 10% ranges. The lower part of the visualization would be used for clusters of low chances of admission, while the higher part of the visualization would be used for higher chances of admission. The size of the bubbles would demonstrate the portion of applicants that fall into that range. Each bubble would contain various applicants that fell into the chance of acceptance rate represented. On hover (or click), the variables of each application would be displayed in a tooltip.</p>
-        <img src="../process-book/images/image3.jpg" class="img-fluid" >
-        <p class="font-weight-light">Ideally, this visualization would use color to separate the circles. Similar to (2),  this visualization lacks the ability to properly demonstrate how each variable affects chance of admission.</p>
-      </li>
-      <li class="list-group-item">
-        <p class="font-weight-light">(Final Design) The final design is an improvement of the first design with the “balance” and the “hanging bar”. It uses a water tank instead. In the above example with GPA, if the balance favors ID 37’s GPA against a pre-calculated standard/”sufficient” level, it opens the gate of the water pump and let water in. Otherwise, it opens the gate of the water drain and drains some water out.  Gradually, as we go through every factor (GPA, TOEFL, GRE, ,recommendation letter, etc.) the water level goes up and down and eventually if it goes beyond the “admitted marker” this ID is admitted, otherwise rejected. The main improvement from the “hanging bar” design is that with water tank you can fill different amount of water to compare the importance of different factors (GPA vs GRE, the more important the more water coming in) but with the “hanging bar” it is harder to do that. Also, potentially, as the water tank design is inherently slightly more complex it can later convey more information from the each run’s water feature (color, “wave”) for more information. It is more expandable and flexible.</p>
-        <img src="../process-book/images/image4.jpg" class="img-fluid" >
-      </li>
-    </ul>
+  <section id="Project">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Must-Have Features</h2> <br>
+      <p class="text-center lead" >List the features without which you would consider your project to be a failure.</p>
+      <hr class="star-dark mb-5">
+        <ul class="list">
+              <li>Must visualize the applicant’s chance of getting into the university</li>
+              <li>Users should be able to select potential applicant profiles to test with the visualization</li>
+              <li>Must be able to visualize the weight and impact of each factor individually </li>
+              <li>Must be interactive</li>
+            </ul>
+    </div>
+  </section>
 
-    <h3>Must-Have Features. </h3>
-    <p class="font-weight-normal font-italic">List the features without which you would consider your project to be a failure.</p>
-    <ul class="list">
-      <li>Must visualize the applicant’s chance of getting into the university</li>
-      <li>Users should be able to select potential applicant profiles to test with the visualization</li>
-      <li>Must be able to visualize the weight and impact of each factor individually </li>
-      <li>Must be interactive</li>
-    </ul>
-
-    <h3>Optional Features. </h3>
-    <p class="font-weight-normal font-italic">List the features which you consider to be nice to have, but not critical.</p>
-    <ul class="list">
+  <section class="bg-primary text-white mb-0" id="Background">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Optional Features</h2> <br>
+      <p class="text-center lead" >List the features which you consider to be nice to have, but not critical.</p>
+      <hr class="star-light mb-5">
+      <ul class="list">
       <li>Users can input their own variables(scores, rating, GPA, etc.) to determine their chances of getting into the university </li>
       <li>Potentially, if we could find more data or data organized by years, we could add visualization for the trends.</li>
     </ul>
+    </div>
+  </section>
 
-    <h3>Project Schedule. </h3>
-    <p class="font-weight-normal font-italic">Make sure that you plan your work so that you can avoid a big rush right before the final project deadline, and delegate different modules and responsibilities among your team members. Write this in terms of weekly deadlines.</p>
-    <p class="font-weight-light"><u>Weekly Deadlines (mondays) </u></p>
+  <section id="Project">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Project Schedule</h2> <br>
+      <p class="text-center lead" >Make sure that you plan your work so that you can avoid a big rush right before the final project deadline, and delegate different modules and responsibilities among your team members. Write this in terms of weekly deadlines.</p>
+      <hr class="star-dark mb-5">
+      <p class="font-weight-light"><u>Weekly Deadlines (mondays) </u></p>
     <ul class="list">
       <li>March 18 - Submit Project Proposal</li>
       <li>March 25 - Together work towards completing 1-2 feature that are necessary to demonstrate project functionality for milestone 1 </li>
@@ -169,48 +284,201 @@
       <li> April 22/25 - Final Project Presentation (Tuesday/Thursday)</li>
       <li> April 29 - Submit Final Project and Peer Evaluations</li>
      </ul>
+    </div>
+  </section>
 
+  <section class="bg-primary text-white mb-0" id="m1-2">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Milestone 1 & 2 Changes and Updates</h2> <br>
+      <hr class="star-light mb-5">
+      <p class="font-weight-light"><u>Milestone 1: </u> In Milestone 1, user selection had been implemented, but the water tank display was not. </p>
+      <img class="img-fluid" src="img/milestone1.png" alt=""><br>
+      <p class="font-weight-light"><u>Milestone 2: </u> In Milestone 2, the user selection is modified, the tables are reconstructed, and water tank is implemented.</p>
+      <p>Description: The left hand side is a panel where users could select an applicant's data to view.
+Every applicant, numbered by a serial number, represented by a circle. The color of the circle indicates the applicant's
+likelihood of being admitted to UCLA's graduate program. When a circle gets selected, it will change to a gold color and it will become larger. All the other circles that fall in the same class of likelihood are also highlighted. After that, users will ber able to see their selection's data, namely the values for each admission factor to populate the table. If the user is satisfied with the selection, the user could click the update button and the animation eill start in the panel to the right of the selection panel. Each factor , e.g. GRE, will be put on a balance, represented by a black ball proportional to its numeric value and the factor's weight in the admission process.It will be compared against the "standard" for that factor, which is calculated by taking the average of that factor among the applicants who are classified as being "highly likely" to be admitted. The animation will go through each factor and either pump water in or drain water out. For example, if the applicant's GRE score is higher than the "standard" GRE, water will be pumped.Otherwise, water will be drained. The amount of water being pumped or drained is proportional to the percentage difference and the factor's weight in admission. As you can see, GRE score is actually not so important in determining admission in our data. Eventually, if the water level in the tank is above the red line, it indicates that the applicant is highly likely to be admitted. </p>
+      <img class="img-fluid" src="img/milestone2-1.png" alt=""><br>
+      <img class="img-fluid" src="img/milestone2.png" alt=""><br>
 
-     <h3 id="m1"> Milestone 2 Changes and Updates</h3>
-     <p class="font-weight-light"><u>Milestone 1 and 2 Screenshots</u></p>
-     <ul class="list-group">
-       <li class="list-group-item">
-         <p class="font-weight-light">In Milestone 1, user selection had been implemented, but the water tank display was not.</p>
-         <img src="../process-book/images/milestone1.png" class="img-fluid">
+    </div>
+  </section>
 
-       </li>
-       <li class="list-group-item">
-         <p class="font-weight-light">In Milestone 2, the user selection is modified, the tables are reconstructed, and water tank is implemented.</p>
-         Description: The left hand side is a panel where users could select an applicant's data to view.
-         <br>
-         Every applicant, numbered by a serial number,  represented by a circle. The color of the circle indicates the applicant's
-         <br>
-         likelihood of being admitted to UCLA's graduate program. When a circle gets selected, it will change to a gold color and
-         it will become larger. All the other circles that fall in the same class of likelihood are also highlighted. After that, users
-         will ber able to see their selection's data, namely the values for each admission factor to populate the table. If the user
-         is satisfied with the selection, the user could click the update button and the animation eill start in the panel to
-         the right of the selection panel. Each factor , e.g. GRE, will be put on a balance, represented by a black ball proportional to
-         its numeric value and the factor's weight in the admission process.It will be compared against the "standard" for that factor,
-         which is calculated by taking the average of that factor among the applicants who are classified as being "highly likely" to
-         be admitted. The animation will go through each factor and either pump water in or drain water out. For example, if the applicant's
-         GRE score is higher than the "standard" GRE, water will be pumped.Otherwise, water will be drained. The amount of water being pumped or drained is
-         proportional to the percentage difference and the factor's weight in admission. As you can see, GRE score is
-         actually not so important in determining admission in our data. Eventually, if the water level in the tank is above the red line, it indicates that
-         the applicant is highly likely to be admitted.
-         <img src="../process-book/images/milestone2.png" class="img-fluid">
+  <section id="ut">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">User Testing</h2> <br>
+      <p class="text-center lead" >In the two days between User Testing and Milestone 2, we completely restructured the project due to feedback on the site's intuitiveness.</p>
+      <hr class="star-dark mb-5">
+      <p class="text-center font-weight-light"> Here are some screenshots of the updated visualization that we used for user tesing: </p>
+      <img class="img-fluid" src="img/ut-1.png" alt=""><br>
+      <img class="img-fluid" src="img/ut-2.png" alt=""><br>
+      <img class="img-fluid" src="img/ut-2-1.png" alt=""><br>
+      <img class="img-fluid" src="img/ut-3.png" alt=""><br>
+      <p class="font-weight-light"> Our User Tasks: </p>
+      <ul class="list">
+            <li>Assume the you are applying to graduate school and you have a low CGPA. Try to visualize your chances of getting in.</li>
+            <li> Attempt to modify your statistics to increase chances of admission into grad school.</li>
+            <li> Assuming that you are likely to get in. What statistic do they feel has the greatest impact on admission? </li>
+          </ul>
+      <p class="font-weight-light"> Most of the feedback we got stated: </p>
+      <ul class="list">
+            <li>Reset button for the user selection</li>
+            <li>Slower jump from user selection to water gauge/table</li>
+            <li>Set table field to zero if the field is empty</li>
+            <li>Make the cells look editable (textbox?)</li>
+            <li>Make the applicant Id and chance of admittance cells non editable </li>
+            <li>Get rid of update button and set table fields to onchange/onblur</li>
+            <li>Create a “back to the user selection button”</li>
+            <li>Make the 3 rectangles (90, 70-90, 70) clickable to highlight the relevant circles.</li>
+          </ul>
 
+    </div>
+  </section>
+  <section class="bg-primary text-white mb-0" id="presentation">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Post-Presentation Changes and Updates</h2> <br>
+      <p class="text-center lead" >After the in class presentation we recieved some feedback and made the changes as requested.</p>
+      <hr class="star-light mb-5">
+      <p class="font-weight-light"><u>Feedback: </u> </p>
+      <ol class="list">
+        <li>The scope of the project is narrow for a 3-person team.</li>
+        <li>Great color scheme and aesthetic. Maybe consider making it all in one page without having to scroll.</li>
+        <li>I really like the aesthetic of the website, especially the form that you can use to calculate your chances.</li>
+        <li>A lot of white space. Utilize it more!</li>
+        <li>Add one more visualization?</li>
+        <li>Very visually pleasing. However, it is unclear if this is for undergrad or grad school. the GRE field indicates grad school but I don't see it stated explicitly anywhere.</li>
+        <li>Like they said in the presentation, would love to see more schools! And more transparency with how the scores are calculated.</li>
+        <li>Great-looking visualization, simple but very effective. I think it could be made more obvious that you can edit the stats inside the boxes.</li>
+        <li>If you manually change the chance of admittance, there's some weird behavior for some of the data points. I thought the visualization was awesome! The only thing I would change is to add more explanatory text that details a lot of the answers to the questions that were asked today. ie how the percentage was calculated.</li>
+        <li>Could have explored more with website format, but otherwise great!</li>
+        <li>The visualization on the first page could be bigger</li>
+        <li>Honestly, really awesome graphics. It looks very clean</li>
+        <li>very aesthetically pleasing, would like more variety</li>
+    </ol>
+    <p class="font-weight-light"><u>Takeaways: </u> We fixed a lot of the minor bugs/recommendations made by our peers. This includes numbers: 4-11. This was a smaller set of tasks was addresesd after the presentation. However, what took the most time was working on the additional two visualizations that we decided to include due to feedback numbers 1 and 5. To be completely transparent, we did have a completely different project scope in the beginning that visualized the chance of admission, which took quite a long time to implement. However, unfortunately with our timeline and current level of skill we were not able to implement it in a completely intuitive way. The old project effort can be found here: <a href=""></a></p>
+    <p class="font-weight-light">Here are some screenshots of final changes to the project:</p>
+    <img class="img-fluid" src="img/final-imgs/final-1.png" alt=""><br>
+    <img class="img-fluid" src="img/final-imgs/final-2.png" alt=""><br>
+    <img class="img-fluid" src="img/final-imgs/final-3.png" alt=""><br>
+    <img class="img-fluid" src="img/final-imgs/final-4.png" alt=""><br>
+    <img class="img-fluid" src="img/final-imgs/final-5.png" alt=""><br>
+    <img class="img-fluid" src="img/final-imgs/final-6.png" alt=""><br>
+    <img class="img-fluid" src="img/final-imgs/final-7.png" alt=""><br>
+    <img class="img-fluid" src="img/final-imgs/final-8.png" alt=""><br>
+    <div class="text-center mt-4">
+      <a class="btn btn-xl btn-outline-light" href="https://washuvis.github.io/admissions/" target="_blank">
+        Check out the project here
+      </a>
+    </div>
 
+    </div>
+  </section>
 
+  <!-- Portfolio Modals -->
 
-       </li>
-       <li class="list-group-item">
-         <img src="../process-book/images/milestone2-1.png" class="img-fluid">
+  <!-- Portfolio Modal 1 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+        <i class="fa fa-3x fa-times"></i>
+      </a>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-secondary text-uppercase mb-0">Design Sketch 1</h2>
+            <hr class="star-dark mb-5">
+            <img class="img-fluid mb-5" src="img/image1.jpg" alt="">
+            <p class="mb-5">I use a “balance” to weigh a factor (e.g., gpa = 3.74) against a pre-calculated “sufficient level” (e.g., “3.8”). The size of the ball represents the value of the factor (such as “3.74”). If the balance favors that ID (in this case 37) 's GPA,it drags the bar upwards toward the line marked as "admitted", otherwise it loosens it down to get closer to the line marked as "reject". Gradually, as we go through every factor (GPA, TOEFL, GRE, recommendation letter, etc.) it moves toward either rejection or admission. The strings between the balance and the purple bar acts as strings of control. The color of the objects are for pop-out effect only with no special meanings, for now. It is simple and intuitive but the largest problem is that. The key is, with this design it is harder to differentiate the different importance of two different factors (e.g., GPA v.s. GRE score) because every factor shares that “sufficient” marker and it is hard to differentiate the effects visually. </p>
+            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <i class="fa fa-close"></i>
+              Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-       </li>
-     </ul>
+  <!-- Portfolio Modal 2 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+        <i class="fa fa-3x fa-times"></i>
+      </a>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-secondary text-uppercase mb-0">Design Sketch 2</h2>
+            <hr class="star-dark mb-5">
+            <img class="img-fluid mb-5" src="img/image2.jpg" alt="">
+            <p class="mb-5">This is a very rough sketch of a basic single page visualization that allows users to look at various graduate school applicant profiles. Each profile will show the variables that are taken into account during the graduate school admissions process. As the user clicks on a circle (representing an applicant profile), the page will move down and display a scatter plot with the selected user profile (highlighted and larger) compared with other user profiles (non-highlighted and smaller--to avoid clutter). On hover, the circles (profiles) will enlarge and show their respective variables.</p>
+            <p class="mb-4">The downside of this visualization is that it is not clear how certain variables affect chance of admission. Additionally, it may be a bit monotonous for the user to go back and forth from the top of the page to the bottom. Our final design should take these faults into account and make it clear which variables have stronger influence, in addition to making user interaction easy rather than tedious.</p>
+            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <i class="fa fa-close"></i>
+              Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</div>
+  <!-- Portfolio Modal 3 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+        <i class="fa fa-3x fa-times"></i>
+      </a>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-secondary text-uppercase mb-0">Design Sketch 3</h2>
+            <hr class="star-dark mb-5">
+            <img class="img-fluid mb-5" src="img/image3.jpg" alt="">
+            <p class="mb-5"> Another alternative design was to use a bubble graph visualization. This would depicted all of the probabilities of admission in 10% ranges. The lower part of the visualization would be used for clusters of low chances of admission, while the higher part of the visualization would be used for higher chances of admission. The size of the bubbles would demonstrate the portion of applicants that fall into that range. Each bubble would contain various applicants that fell into the chance of acceptance rate represented. On hover (or click), the variables of (3) Another alternative design was to use a bubble graph visualization. This would depicted all of the probabilities of admission in 10% ranges. The lower part of the visualization would be used for clusters of low chances of admission, while the higher part of the visualization would be used for higher chances of admission. The size of the bubbles would demonstrate the portion of applicants that fall into that range. Each bubble would contain various applicants that fell into the chance of acceptance rate represented. On hover (or click), the variables of each application would be displayed in a tooltip. Ideally, this visualization would use color to separate the circles. Similar to Design Sketch 2, this visualization lacks the ability to properly demonstrate how each variable affects chance of admission. </p>
+            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <i class="fa fa-close"></i>
+              Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 4 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-4">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+        <i class="fa fa-3x fa-times"></i>
+      </a>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-secondary text-uppercase mb-0">Final Design Sketch</h2>
+            <hr class="star-dark mb-5">
+            <img class="img-fluid mb-5" src="img/image4.jpg" alt="">
+            <p class="mb-5">The final design is an improvement of the first design with the “balance” and the “hanging bar”. It uses a water tank instead. In the above example with GPA, if the balance favors ID 37’s GPA against a pre-calculated standard/”sufficient” level, it opens the gate of the water pump and let water in. Otherwise, it opens the gate of the water drain and drains some water out. Gradually, as we go through every factor (GPA, TOEFL, GRE, ,recommendation letter, etc.) the water level goes up and down and eventually if it goes beyond the “admitted marker” this ID is admitted, otherwise rejected. The main improvement from the “hanging bar” design is that with water tank you can fill different amount of water to compare the importance of different factors (GPA vs GRE, the more important the more water coming in) but with the “hanging bar” it is harder to do that. Also, potentially, as the water tank design is inherently slightly more complex it can later convey more information from the each run’s water feature (color, “wave”) for more information. It is more expandable and flexible.</p>
+            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <i class="fa fa-close"></i>
+              Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
 
 </body>
-</html>
 
+</html>
