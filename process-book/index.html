@@ -31,7 +31,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary2 fixed-top text-uppercase" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Admissions</a>
+      <a class="navbar-brand js-scroll-trigger" href="https://washuvis.github.io/admissions/" target="_blank">Admissions</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -47,6 +47,15 @@
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#presentation">Post-Presentation</a>
           </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#peerevaluations">Peer-Evaluations</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#screencast">Screencast</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#sources">Sources</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -56,7 +65,8 @@
   <header class="masthead bg-primary2 text-white text-center">
     <div class="container">
       <img class="img-fluid mb-5 d-block mx-auto" src="img/ucla.png" alt="" height="142" width="142">
-      <h1 class="text-uppercase mb-0">Admissions</h1>
+      <h1 class="text-uppercase mb-0">Admissions</h1><br>
+      <h1 class="text-uppercase mb-0">Process Book</h1>
       <hr class="star-light">
       <h2 class="font-weight-light mb-0">Visualizing potential UCLA graduate applicant's chance of admission.</h2>
     </div>
@@ -97,7 +107,7 @@
   <!-- About Section -->
   <section class="bg-primary text-white mb-0" id="Background">
     <div class="container">
-      <h2 class="text-center text-uppercase text-white">Background and Motivation</h2> <br>
+      <h2 class="text-center text-uppercase text-white">Overview and Motivation</h2> <br>
       <p class="text-center lead" >Discuss your motivations and reasons for choosing this project, especially any background or research interests that may have influenced your decision.</p>
       <hr class="star-light mb-5">
       <p class="font-weight-light">
@@ -136,12 +146,13 @@
   <section class="bg-primary text-white mb-0" id="Data">
     <div class="container">
       <h2 class="text-center text-uppercase text-white">Data</h2> <br>
-      <p class="text-center lead" >From where and how are you collecting your data? If appropriate, provide a link to your data sources.</p>
+      <p class="text-center lead" >From where and how are you collecting your data? If appropriate, provide a link to your data sources. Source, scraping method, cleanup, etc.</p>
       <hr class="star-light mb-5">
       <p class="font-weight-light">
         We found our dataset on Kaggle. It is collected by a person named Mohan S Acharya, as part of his paper on a relevant topic [1]. <br> Link: <a href="https://www.kaggle.com/mohansacharya/graduate-admissions" target="_blank">https://www.kaggle.com/mohansacharya/graduate-admissions.</a> <br><br>
   [1] Mohan S Acharya, Asfia Armaan, Aneeta S Antony : A Comparison of Regression Models for Prediction of Graduate Admissions, IEEE International Conference on Computational Intelligence in Data Science 2019.
     </p>
+    <p class="font-weight-light">For our project we took the dataset and ran a multi variable regression in R and Python in order to extract the relevant factors for calculating applicants chance of admission. This can be found in the data section of the repository. </p>
     <div class="text-center mt-4">
       <a class="btn btn-xl btn-outline-light" href="https://www.kaggle.com/mohansacharya/graduate-admissions/version/2">
         Check out the dataset
@@ -370,6 +381,121 @@ likelihood of being admitted to UCLA's graduate program. When a circle gets sele
       </a>
     </div>
 
+    </div>
+  </section>
+
+  <section id="ut">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Related Work</h2> <br>
+      <p class="text-center lead" >Anything that inspired you, such as a paper, a website, visualizations we discussed in class, etc.</p>
+      <hr class="star-dark mb-5">
+      <p class="text-center font-weight-light"> There was not really any prior visualization or website that inspired our work. For this project we started by looking on Kaggle for interesting datasets, and when we stumbled upon the UCLA admissions dataset we just started brainstorming the best ways to utilize and visualize the dataset. </p>
+    </div>
+  </section>
+
+  <section class="bg-primary text-white mb-0" id="presentation">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Questions</h2> <br>
+      <p class="text-center lead" >What questions are you trying to answer? How did these questions evolve throughout the project? What new questions did you consider in the course of your analysis?</p>
+      <hr class="star-light mb-5">
+      <p class="text-center font-weight-light">We are most interested in giving applicants a better idea of seeing what kind of applicant the university has recieved as well as accepted. We hope that people interested in applying to UCLA graduate school will be able to come to this website and get a better idea of their likeliness of getting into the university and seeing what they are up against. In the course of our analysis we became interested in seeing which statistics had largest affect on chance of admission. From this idea, we then modified our visualization to accept user input and calculate their own respective chances of admission. </p>
+    </div>
+  </section>
+  <section id="ut">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Exploratory Data Analysis</h2> <br>
+      <p class="text-center lead" >What visualizations did you use to look at your data initially? What insights did you gain? How did these insights inform your design?</p>
+      <hr class="star-dark mb-5">
+      <p class="text-center font-weight-light"> If you look under the Milestone 2 tab on the process book, you can see the intial effort at creating a water tank visualization with a balance to show the most important factors in determining chance of admission. We found that the implementation was not very intuitive, so we had to make a lot of changes to simplify it in order to increase user understanding. A lot of time and code was put into building the intial watertank code and it did set us back a bit of time when it came to restructuring the entire visualization. </p>
+    </div>
+  </section>
+
+  <section class="bg-primary text-white mb-0" id="presentation">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Design Evolution</h2> <br>
+      <p class="text-center lead" > What are the different visualizations you considered? Justify the design decisions you made using the perceptual and design principles you learned in the course. Did you deviate from your proposal?</p>
+      <hr class="star-light mb-5">
+      <p class="text-center font-weight-light"> Images detailing our visualizations growth is depicted in the upper part of the proces book. Most of the design choices made throughout the project was in favor of making the viz easy to understand and use for users. From the course we utilized our knowledge of d3, colorbliness awarenes, style layout, project flow and user journey, user testing practices and protocols, and overall ink to page visualization techniques. Beyond the major overhaul in between Milestone 2 and user testing, there we not many deviations in our proposal. Our overall goal never changed, however the way we accomplished it did. These changes are detailed under the Milestone 1 and 2, User Testing, and Post Presentation sections. </p>
+    </div>
+  </section>
+  <section id="ut">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Implementation</h2> <br>
+      <p class="text-center lead" >Describe the intent and functionality of the interactive visualizations you implemented. Provide clear and well-referenced images showing the critical design and interaction elements.</p>
+      <hr class="star-dark mb-5">
+      <h5 class="text-center"> Our intent was purely to allow user to visualize their chances and the 2018 applicant pool's chances of getting into UCLA graduate school. On load, users are able to select an applicant and view that appliants chance of admission into UCLA. </h5>
+      <img class="img-fluid" src="img/final-imgs/final-3.png" alt=""><br>
+      <h5 class="text-center"> From there, users can edit the stats to measure their own chances of getting into UCLA. Additionally, at the bottom of the page there are buttons for explaining the statistics to users who are unsure what each field means as well as a button to explain how the chance of admission is calculated with a regression. </h5>
+      <img class="img-fluid" src="img/final-imgs/final-7.png" alt=""><br>
+      <h5 class="text-center"> Users can also see where each applicant falls in the range of other applicants in the pool. </h5>
+      <img class="img-fluid" src="img/final-imgs/final-4.png" alt=""><br>
+      <h5 class="text-center"> Additionally, users can see the variation in the statistics spread for the 2018 applicant pool. </h5>
+      <img class="img-fluid" src="img/final-imgs/final-6.png" alt=""><br>
+    </div>
+  </section>
+
+  <section class="bg-primary text-white mb-0" id="presentation">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Evaluation</h2> <br>
+      <p class="text-center lead" >What did you learn about the data by using your visualizations? How did you answer your questions? How well does your visualization work, and how could you further improve it?</p>
+      <hr class="star-light mb-5">
+      <p class="text-center font-weight-light"> Using our visualization we learned about what factors are important to UCLAs graduate admissions office (i.e. CGPA and GRE - though this idea may not stem to other graduate instituites). We think our visualization works very well and is clear at communicating chance of admission to prospecitive applicants. For further improvement we would REALLY like to get our hands on other college datasets and create a more global product for displaying chances at getting into any graduate school.</p>
+    </div>
+  </section>
+  <section id="sources">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Sources</h2> <br>
+      <p class="text-center lead" >The sources we used are also linked in our project README.md.</p>
+      <hr class="star-dark mb-5">
+      <p class="text-center font-weight-light">Many thanks/credit to the various sources we used in our project. </p>
+      <ol class="list">
+        <li><a href="https://www.kaggle.com/mohansacharya/graduate-admissions" target="_blank">Kaggle</a> - Admissions Dataset </li>
+        <li><a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Bootstrap v4</a> - Admission Website and Process Book Base CSS Structure </li>
+        <li><a href="http://bl.ocks.org/brattonc/5e5ce9beee483220e2f6" target="_blank">liquidFillGauge</a> - Water Gauge Visualization </li>
+        <li><a href="https://bl.ocks.org/seemantk/ec245e1f4e824e685982dd5d3fbb2fcc" target="_blank">Bar Chart</a> - Troubleshooting </li>
+        <li><a href="http://vallandingham.me/gates_bubbles/" target="_blank">Bubble Chart</a> - Troubleshooting </li>
+    </ol>
+    </div>
+  </section>
+
+  <section class="bg-primary text-white mb-0" id="peerevaluations">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Peer Evaluations</h2> <br>
+      <p class="text-center lead" >After the in class presentation we recieved some feedback and made the changes as requested.</p>
+      <hr class="star-light mb-5">
+      <ol class="list">
+        <li>Jordan Chisam's Reflection</li>
+          <ul class="list">
+            <li><u>Preparation:  </u>My teammates were always prepared for the set deadlines. If anyone ran into issues during development, they would be quick to let the rest of the team know so that deadlines would still be attainable. Moreover, my teammates were always willing to help takes a look other's code that was broken or performing weird.</li>
+            <br><li><u>Contribution: </u> This is a first for me, but this is probably one of the few projects I have worked on at WashU were there was an equal amount of work spread, and everyone completed everything without a complaint. I honestly could not have asked for a better or more supportive team. Both Steven and Zhengliang always had excellent ideas and different perspectives to bring to the table that really helped make this project possible. </li>
+            <br><li><u>Respect of Others Ideas: </u> I think everyone was fairly respectful of everyone's ideas. When we ran into a few issues after Milestone 2, I think our team came together an evaluated the best course of option for simplifying the user journey. </li>
+            <br><li><u>Flexibility: </u> Again, everyone was very flexible with communication and finding times to complete their work. Despite the fact that we completed a lot of work remotely, we were still able to stay fairly close in sync and meet all of the deadlines. Shout out to <a href="https://www.slack.com" target="_blank">Slack</a> for helping us achieve that. </li><br>
+          </ul>
+        <li>Steven Harris's Reflection</li>
+        <ul class="list">
+          <li><u>Preparation: </u>This team is by far one of the most well prepared teams that I have worked with in a very long time. Their knowledge of d3, javascript, and all things "web-based" was far superior to my own abilities but they were more than willing to help and make suggestions or criticism when or where needed. My teammates were sharp, on point, and ready to work.</li>
+          <br><li><u>Contribution: </u> Our team is unique in that each one of us brings a fresh perspective to the project. Where I lack creativity, Zhengliang steps in with his wellspring of inspiration and creativity. If I am far too creative and going off the deep end, Jordan is very grounded, balanced, and poised. She gives our project a level of professionalism that not only looks good but makes the whole interface intuitive and easy to use.</li>
+          <br><li><u>Respect of Others Ideas: </u> I don't think respect was ever an issue (IMHO). Our team is very democratic in that if there is an idea that one of us would like to pursue, just go ahead and build it! If it works, we all work together to incorporate it and if it doesn't, we pursue other means to make the project work, together. I am thankful to have a very mindful and open team.</li>
+          <br><li><u>Flexibility: </u> Given the mindfulness of the team and their ability to remain open to suggestions, creative inspirations, and input, was only accomplished because of the underlying flexibility that our team has allowed for this project. I had an excellent team bar none.</li> <br>
+        </ul>
+        <li>Zhengliang Liu's Reflection</li>
+          <ul class="list">
+            <li><u>Preparation: </u></li>
+            <br><li><u>Contribution: </u></li>
+            <br><li><u>Respect of Others Ideas: </u></li>
+            <br><li><u>Flexibility: </u></li>
+          </ul>
+    </ol>
+    </div>
+  </section>
+  <section id="screencast">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Screencast</h2> <br>
+      <p class="text-center lead" >This can also be found linked in the project README.md.</p>
+      <hr class="star-dark mb-5">
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/xh9uLeOBHYA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </center>
     </div>
   </section>
 
