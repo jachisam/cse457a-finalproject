@@ -4,6 +4,11 @@
 # Process Book: <https://jachisam.github.io/cse457a-finalproject/process-book/>
 # Data: <https://github.com/jachisam/cse457a-finalproject/blob/master/data/graduate-admissions/Admission_Predict.csv>
 # Code: <https://github.com/jachisam/cse457a-finalproject>
+The files that we created are: everything under /data, /images, /old_milestones
+Under /js, the files we created are histogram.js, liquidFillGauge_mod.js, main.js, main_watergauge.js, student.bar.chart.js, watergauge.js, watertank.js.
+Everything under /js/components are bootstrap, jquery and d3 v3. and v4. libraries
+Everything under /scss, /vendor /css were structurally provided by bootstrap v4. and customized for this project
+Both the project index file and the process book _structure/layout_ were based off/inspired by bootstrap structured templates. 
 # Peer Evaluations <https://jachisam.github.io/cse457a-finalproject/process-book/#peerevaluations>
 # The Screencast can be found in two places:
 1. <https://jachisam.github.io/cse457a-finalproject/process-book/#screencast>
