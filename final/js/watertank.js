@@ -1,15 +1,25 @@
-var width = 1000,
-    height = 450;
-    //height = 600;
+// height and width of the svg
+var width = 1000;
+var height = 450;
+// the name of the current admission factor being processed
 var curr_admission_factor = "";
+// flag to tell with the timer to stop animation
 var stop_measuring = 0;
+// record the number of factors
 var num_admission_factors = 0;
+// record the index of the current factor in the array of factor names
 var curr_measure_index = 0;
+// the current row of the list of data that id being processed
 var curr_row = {};
+// record the list of admission factors
 var admission_factors = [];
+// variable for the timer that controls when to start measuring animation
 var start_measure;
+// variable for the timer interval that controls how long an animation is
 var measuring;
+// variable for the timer that controls when to re-start
 var setback;
+// store the avg values of each factor for those who are admitted
 var admission_factor_standards = {
     GRE_Score: 328,
     TOEFL_Score: 114,
@@ -19,8 +29,12 @@ var admission_factor_standards = {
     CGPA: 9.25,
     Research:1
 };
+// record  the water level
 var waterlevel;
+
+
 var lineGenerator = d3v3.svg.line();
+// coefficients for each factor obtained by the stastical analysis
 var admission_factor_coefficients =
     {
         GRE_Score: 0.001859,
@@ -32,38 +46,58 @@ var admission_factor_coefficients =
         Research:0.024307
     };
 
+// the sum of the coefficients
 var admission_factor_coefficients_sum = 0;
 
+// the dict to record weights for each factor
 var admission_factor_weights = {};
 
+
+// left end of the balance bar
 var left_elbow = [];
+// right end of the balance bar
 var right_elbow = [];
+// the [x,y] of the location of the closed pump
 var pump_closed_point = [];
+// the [x,y] of the location of the open pump
 var pump_open_point = [];
+// the [x,y] of the location of the closed drain
 var drain_open_point = [];
+// the [x,y] of the location of the open drain
 var drain_closed_point = [];
 
+// the initial position of the upper end of the left vertical line
 var old_left_verical = [];
+// the initial position of the upper end of the right vertical line
 var old_right_vertical = [];
+// the initial x position of the pan of the left vertical line
 var old_left_pan_x = 0;
+// the initial y position of the pan of the left vertical line
 var old_left_pan_y = 0;
+// the initial x position of the pan of the right vertical line
 var old_right_pan_x = 0;
+// the initial y position of the pan of the right vertical line
 var old_right_pan_y = 0;
+// var to hold the water tank object
 var gauge_tank;
 
+// current tank level
 var current_tank_level = 60;
 
+// scale the degree of rotation based on percentage diff of the two sides of balance
 var degree_scale = d3v3.scale.linear()
     .domain([-1, 1])
     .range([85, -85]);
-
+// scale the size of water fill based on percentage diff of the two sides of balance
 var water_fill_scale = d3v3.scale.linear().domain([0,1*0.6894272486387328*60])
     .range([20,100]);
-
+// scale the size of the ball based ln percentage diff of the two sides of balance
 var ball_scale = d3v3.scale.linear().domain([0.001586,0.6894272486387328])
     .range([1,20]);
 
+// a copy of the position data of the right upper side of the water tank
 var upper_right_side_data_reuse;
+// a copy of the position data of the left upper side of the water tank
 
 var upper_left_side_data_reuse;
 
@@ -94,9 +128,11 @@ d3v3.csv("../data/graduate-admissions/admission_cleaned.csv", function (error,da
     var g_control = svg.append("g").attr("id","g_control")
         .attr("transform","scale(0.8)");
 
+    // display serial number
     g_control.append("text").attr("id","serial_display").text("Current applicant's serial number: ")
         .attr("x",50).attr("y",50);
 
+    // display current factor
     g_control.append("text").attr("id","current_factor")
         .text("Current admission factor: ")
         .attr("x",50).attr("y",100);
@@ -237,6 +273,7 @@ d3v3.csv("../data/graduate-admissions/admission_cleaned.csv", function (error,da
 
 
 
+    // get the necessary info
     num_admission_factors = Object.keys(data[0]).length;
     admission_factors = Object.keys(data[0]).slice();
     curr_row = data[0];
@@ -250,6 +287,7 @@ upper_right_side_data_reuse = upper_right_side_data;
 upper_left_side_data_reuse = upper_left_side_data;
 
 
+// fill in the water tank to an initial level
     d3v3.select("#water_in_tank_svg").remove();
     d3v3.select("#g_control").append("svg")
         .attr("id","water_in_tank_svg")
@@ -282,6 +320,7 @@ upper_left_side_data_reuse = upper_left_side_data;
         .attr("r","500");
 
 
+    // prepare the two balls on balance
 
     d3v3.select("#g_control").append("path").attr("id","marker").attr("d",
         lineGenerator([[upper_right_side_data_reuse[0][0],150],
@@ -306,6 +345,11 @@ upper_left_side_data_reuse = upper_left_side_data;
 
 });
 
+/*
+
+This gets called when update button is clicked. Wait for 3 seconds
+and then start the animation
+ */
 function start_measure_when_update_clicked(data_from_update)
 {
 
@@ -322,19 +366,24 @@ function start_measure_when_update_clicked(data_from_update)
 
 
 
+    // define the time needed to go over one factor
 
     start_measure = setTimeout(measure,3000);
     console.log("finish update in watertank.js");
 
 }
 
-
+/*
+set the time for one factor's animation
+ */
 function measure() {
     measuring = setInterval(measure_one_by_one,
         3000);
 }
 
-
+/*
+Helper function to find the mid point
+ */
 function find_midpoint(point_x, point_y)
 {
     var midpoint = [0,0];
@@ -343,6 +392,13 @@ function find_midpoint(point_x, point_y)
     return midpoint;
 }
 
+/*/
+Go over each factor one by one. A ball
+representing the factor, e.g., GRE's value will be put
+on the balance against a ball representing the avg GRE of the admitted students
+Depending on the percentage difference, the balance will
+rotate different degrees and the water level will be raised and dropped proportionally.
+ */
 function measure_one_by_one()
 {
     if(stop_measuring == 1)
@@ -377,6 +433,7 @@ function measure_one_by_one()
         var percentage_diff = (curr_row[curr_admission_factor]-admission_factor_standards[curr_admission_factor])
             /admission_factor_standards[curr_admission_factor];
 
+        // find the size of the current water fill
         var curr_portion = admission_factor_weights[curr_admission_factor]*60;
 
         //console.log(admission_factor_weights);
@@ -391,11 +448,11 @@ function measure_one_by_one()
             curr_addon = 1;
         }
         current_tank_level = current_tank_level+Math.round(curr_addon);
-        //console.log(current_tank_level);
         if(current_tank_level>=80)
         {
             current_tank_level = 80;
         }
+        // update the water level
         gauge_tank.update(current_tank_level);
         if(percentage_diff >= 1)
         {
@@ -413,6 +470,8 @@ function measure_one_by_one()
             + curr_row[curr_admission_factor] + " "
         + admission_factor_standards[curr_admission_factor] );
 
+
+        // animate the balance
         var self = d3v3.select("#horizontal_bar").node();
         var cx = self.getBBox().x + self.getBBox().width/2;
         var cy = self.getBBox().y + self.getBBox().height/2;
@@ -464,6 +523,7 @@ function measure_one_by_one()
             .attr("cy",right_vertical_data[1][1]-right_r)
             .attr("r",right_r);
 
+        // open the pump or drain and attach water animation
         if(curr_row[curr_admission_factor]
             >= admission_factor_standards[curr_admission_factor])
         {
@@ -525,6 +585,7 @@ function measure_one_by_one()
 
         }
 
+        // set the balance back in initial place after 2 seconds
         setback = setTimeout(setback_balance_bar,2000);
         if(curr_measure_index < 6)
         {
@@ -535,6 +596,9 @@ function measure_one_by_one()
     // Eric White 314 332 7266
 }
 
+/*
+convert values to numerics
+ */
 function convert_row_to_numeric(some_data) {
     for (var field in some_data) {
         some_data[field] = +some_data[field];
@@ -543,6 +607,9 @@ function convert_row_to_numeric(some_data) {
 }
 
 
+/*
+Reset the balance back to initial place using the data recorded
+ */
 function setback_balance_bar() {
 
     d3v3.select("#water_in_svg").transition().remove();
@@ -591,10 +658,16 @@ function setback_balance_bar() {
 
 }
 
+/*
+convert degree to radians
+ */
 function degree_to_radians (angle) {
     return angle * (Math.PI / 180);
 }
 
+/*
+calculate the position of a point after rotation
+ */
 function rotate_point(cx, cy, x, y, angle) {
     var radians = (Math.PI / 180) * angle;
     var cos = Math.cos(radians);
